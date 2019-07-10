@@ -1,14 +1,15 @@
 #head {
     
     margin: 0;
-    padding: 0;
+    padding: 22px;
     max-width: 100%;
     
 }
 
 body{
     margin: 0;
-    padding: 0;
+    padding: 6em;
+    background:rgb(209, 111, 111);
 }
 
  
@@ -17,19 +18,25 @@ nav {
     top:0;
     left:0;
     width:100%;
-    background:rgb(10, 10, 10);
-    display: flex;
-    flex-flow: row;
+    background:rgb(134, 125, 125);
+    
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    
+
 
 }
-nav a{
+nav ul{
     color:#fff;
     text-decoration:none;
     padding: .5em 2em;
+    display: flex;
+    flex-flow: row;
+    width:50vw;
+    justify-content: space-around;
+    list-style:none;
 }
-nav a hover{
+nav ul hover{
     background:#fff;
 }
 footer{
