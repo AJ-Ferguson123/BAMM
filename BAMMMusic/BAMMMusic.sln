@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAMMMusic", "BAMMMusic\BAMMMusic.csproj", "{99C7AF29-FFCE-49C3-8C45-78C94B68E16A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAMMMusic.Tests", "BAMMMusic.Tests\BAMMMusic.Tests.csproj", "{D793BCC2-2834-470A-BBC2-11B1D09BAED5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99C7AF29-FFCE-49C3-8C45-78C94B68E16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C7AF29-FFCE-49C3-8C45-78C94B68E16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C7AF29-FFCE-49C3-8C45-78C94B68E16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C7AF29-FFCE-49C3-8C45-78C94B68E16A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D793BCC2-2834-470A-BBC2-11B1D09BAED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D793BCC2-2834-470A-BBC2-11B1D09BAED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D793BCC2-2834-470A-BBC2-11B1D09BAED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D793BCC2-2834-470A-BBC2-11B1D09BAED5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C40F9B8E-CEDE-43C7-B8A4-C5DE760F4D09}
+	EndGlobalSection
+EndGlobal
