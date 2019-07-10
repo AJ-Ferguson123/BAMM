@@ -1,0 +1,44 @@
+#head {
+    
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+ 
+nav {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgb(10, 10, 10);
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-bottom: 2em;
+
+}
+nav a{
+    color:#fff;
+    text-decoration:none;
+    padding: .5em 2em;
+}
+nav a hover{
+    background:#fff;
+}
+footer{
+    position: fixed;
+    margin-top: 2em;
+    margin-bottom:1em;
+    background:#666;
+    color:#fff;
+    padding: 1em 0;
+    text-align: center;
+
+}
