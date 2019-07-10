@@ -1,11 +1,4 @@
-.head {
-    
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    
-    
-}
+
 
 body{
     margin: 0;
@@ -13,6 +6,16 @@ body{
     background-color: rgb(245, 125, 125);
 }
 
+.head {
+    
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    text-align: center;
+    
+    
+    
+}
  
 nav {
     position: fixed;
@@ -35,10 +38,10 @@ nav a hover{
     background:#fff;
 }
 footer{
-    position: fixed;
+    
     margin-top: 2em;
     margin-bottom:1em;
-    background:#666;
+   
     color:#fff;
     padding: 1em 0;
     text-align: center;
