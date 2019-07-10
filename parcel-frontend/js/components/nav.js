@@ -1,3 +1,5 @@
 export default function Home(){
-    return 'This is Homepage'
-}
+    return `
+    <p>This is a Homepage</p>
+    `
+};
