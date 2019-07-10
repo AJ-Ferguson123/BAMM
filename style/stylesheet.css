@@ -1,14 +1,16 @@
-#head {
+.head {
     
     margin: 0;
     padding: 0;
     max-width: 100%;
+    
     
 }
 
 body{
     margin: 0;
     padding: 0;
+    background-color: rgb(245, 125, 125);
 }
 
  
