@@ -733,3 +733,7 @@ typings/
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 
 # End of https://www.gitignore.io/api/node,csharp,aspnetcore,visualstudio,visualstudiocode
+
+## ignore dist
+
+/parcel-frontend/dist
