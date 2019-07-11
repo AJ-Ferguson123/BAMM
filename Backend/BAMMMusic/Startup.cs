@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BAMMMusic
@@ -35,10 +36,14 @@ namespace BAMMMusic
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            else
             {
-                await context.Response.WriteAsync("Hello World!");
-            });
+                app.UseHsts();
+            }
+
+            app.UseCors("MyPolicy");
+            app.UseHttpsRedirection();
+            app.UseMvc();
         }
     }
 }
