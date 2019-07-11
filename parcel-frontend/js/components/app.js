@@ -15,4 +15,5 @@ function home(){
     home.addEventListener('click', function(){
         body.innerHTML = Home();
     });
+    
 }
