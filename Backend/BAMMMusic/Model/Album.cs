@@ -7,9 +7,9 @@ namespace BAMMMusic.Model
 {
     public class Album
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Image { get; set; }
+        public int AlbumId { get; set; }
+        public string AlbumTitle { get; set; }
+        public string AlbumImage { get; set; }
         public string Label { get; set; }
         public int Date { get; set; }
 
