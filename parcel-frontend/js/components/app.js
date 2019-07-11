@@ -1,10 +1,13 @@
 import Home from './nav';
+import Artists from './artists';
+import apiActions from '../api/api-actions';
+
 
 
 pageBuild();
 
 function pageBuild(){
-   
+    artists();
     home();
 }
 
@@ -15,4 +18,14 @@ function home(){
     home.addEventListener('click', function(){
         body.innerHTML = Home();
     });
+    
+}
+function artists(){
+    const artist = document.querySelector('nav_Artists');
+    artist.addEventListener('click', function(){
+        apiActions.getRequest('https://localhost:44358/api/artist', artists =>{
+            document.getElementById('body').innerHTML= Artists(artists)
+            
+        })
+    })
 }
