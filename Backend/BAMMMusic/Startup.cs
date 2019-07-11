@@ -35,10 +35,14 @@ namespace BAMMMusic
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            else
             {
-                await context.Response.WriteAsync("Hello World!");
-            });
+                app.UseHsts();
+            }
+
+            app.UseCors("MyPolicy");
+            app.UseHttpsRedirection();
+            app.UseMvc();
         }
     }
 }
