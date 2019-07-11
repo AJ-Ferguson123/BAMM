@@ -1,4 +1,4 @@
-import Home from './components/nav';
+import Home from './nav';
 
 
 pageBuild();
@@ -9,10 +9,10 @@ function pageBuild(){
 }
 
 function home(){
-    const home = document.querySelector('.nav_home');
-    
+    const body = document.getElementById('body');
+    const home = document.getElementById('nav_home');
+
     home.addEventListener('click', function(){
-        const app = document.getElementById('app');
-        app.innerHTML = Home();
-    } )
+        body.innerHTML = Home();
+    });
 }
