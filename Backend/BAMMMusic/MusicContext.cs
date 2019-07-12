@@ -203,7 +203,7 @@ namespace BAMMMusic
                 new Tag
                 {
                     TagId=1,
-                    TagTitle="Rock & Roll"
+                    TagTitle="Rock & Roll",
                     SongId=8,
                 },
                 new Tag
