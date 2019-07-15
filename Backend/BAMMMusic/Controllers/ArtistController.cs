@@ -13,9 +13,9 @@ namespace BAMMMusic.Controllers
     {
         // GET: api/Artist
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<string> Get()
         {
-            return new string[] { "Queen", "Prince" };
+            return new string[] { "value1", "value2" };
         }
 
         // GET: api/Artist/5
