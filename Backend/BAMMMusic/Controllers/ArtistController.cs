@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BAMMMusic.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,17 +11,11 @@ namespace BAMMMusic.Controllers
     [ApiController]
     public class ArtistController : ControllerBase
     {
-        private readonly MusicContext _context;
-
-        public ArtistController(MusicContext context)
-        {
-            _context = context;
-        }
         // GET: api/Artist
         [HttpGet]
-        public IEnumerable<Artist> GetArtists()
+        public IEnumerable<string> Get()
         {
-            return _context.Artists;
+            return new string[] { "value1", "value2" };
         }
 
         // GET: api/Artist/5
