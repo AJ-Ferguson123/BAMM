@@ -1,7 +1,7 @@
 import Home from './navBar';
 import Artists from './artists';
 import apiActions from '../api/api-actions';
-
+import Albums from './albums';
 
 
 pageBuild();
@@ -9,6 +9,7 @@ pageBuild();
 function pageBuild(){
     artists();
     home();
+    albums();
 }
 
 function home(){
@@ -45,6 +46,35 @@ function artists(){
                   document.querySelector("#root").innerHTML = Artists(artists);
                 }
               );
+        }
+    })
+}
+
+function albums(){
+    const album = document.getElementById('nav_Albums');
+    album.addEventListener('click', function(){
+        apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
+            console.log(albums)
+            document.getElementById('root').innerHTML= Albums(albums)
+        })
+    })
+
+    
+
+    document.getElementById('root').addEventListener("click", function(){
+        if(event.target.getElementById.contains('add-album_submit')){
+            const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
+            const data ={
+                id: 0,
+                AlbumTitle: albumTitle
+            };
+            apiActions.postRequest(
+                "https://localhost:44358/api/albums",
+                data,
+                albums => {
+                  document.querySelector("#root").innerHTML = Albums(albums);
+                }
+              );            
         }
     })
 }
