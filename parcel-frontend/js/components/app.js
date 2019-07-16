@@ -32,7 +32,7 @@ function artists(){
     
 
     document.getElementById('root').addEventListener("click", function(){
-        if(event.target.classList('add-artist_submit')){
+        if(event.target.classList.contains('add-artist_submit')){
             const artistName = event.target.parentElement.querySelector('.add-artist_artistname').value;
             const data ={
                 id: 0,
