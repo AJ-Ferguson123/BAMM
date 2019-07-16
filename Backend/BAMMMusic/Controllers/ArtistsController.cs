@@ -24,16 +24,14 @@ namespace BAMMMusic.Controllers
         }
 
         // GET: api/Artists
-        [EnableCors("AnotherPolicy")]
-
         [HttpGet]
         public IEnumerable<Artist> GetArtists()
         {
-            return _context.Artists;
+            return _context.Artists.ToList();
+            
         }
 
         // GET: api/Artists/5
-        [EnableCors]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetArtist([FromRoute] int id)
         {

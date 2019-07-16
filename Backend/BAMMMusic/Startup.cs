@@ -31,7 +31,7 @@ namespace BAMMMusic
             services.AddDbContext<MusicContext>();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
-                builder.WithOrigins("https://localhost:44358/api/artist");
+                //builder.WithOrigins("https://localhost:44358/api/artist")
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
