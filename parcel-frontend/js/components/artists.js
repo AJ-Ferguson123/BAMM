@@ -7,9 +7,10 @@ export default function Artists(artists){
             <h3>${artist.artistName}</h3>
             <h3>${artist.hometown}</h3>
           </li>
+          
   `
   
-    })}
+    }).join("")}
         </ul>
 
         <section class="add-artist">

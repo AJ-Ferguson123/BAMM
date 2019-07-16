@@ -10,9 +10,10 @@ export default function Albums(albums){
             <h3>${album.date}</h3>
             <h3>${album.Artist.artistName}</h3>
           </li>
-  `
-  
-    })}
+          `
+          
+        })
+        .join("")}
         </ul>
 
         <section class="add-album">

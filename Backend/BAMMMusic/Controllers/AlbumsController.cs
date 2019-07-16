@@ -7,64 +7,61 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BAMMMusic;
 using BAMMMusic.Model;
-using Microsoft.AspNetCore.Cors;
 
 namespace BAMMMusic.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ArtistsController : ControllerBase
+    public class AlbumsController : ControllerBase
     {
         private readonly MusicContext _context;
 
-
-        public ArtistsController(MusicContext context)
+        public AlbumsController(MusicContext context)
         {
             _context = context;
         }
 
-        // GET: api/Artists
+        // GET: api/Albums
         [HttpGet]
-        public IEnumerable<Artist> GetArtists()
+        public IEnumerable<Album> GetAlbums()
         {
-            return _context.Artists.ToList();
-            
+            return _context.Albums.ToList();
         }
 
-        // GET: api/Artists/5
+        // GET: api/Albums/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetArtist([FromRoute] int id)
+        public async Task<IActionResult> GetAlbum([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var artist = await _context.Artists.FindAsync(id);
+            var album = await _context.Albums.FindAsync(id);
 
-            if (artist == null)
+            if (album == null)
             {
                 return NotFound();
             }
 
-            return Ok(artist);
+            return Ok(album);
         }
 
-        // PUT: api/Artists/5
+        // PUT: api/Albums/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutArtist([FromRoute] int id, [FromBody] Artist artist)
+        public async Task<IActionResult> PutAlbum([FromRoute] int id, [FromBody] Album album)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != artist.ArtistId)
+            if (id != album.AlbumId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(artist).State = EntityState.Modified;
+            _context.Entry(album).State = EntityState.Modified;
 
             try
             {
@@ -72,7 +69,7 @@ namespace BAMMMusic.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ArtistExists(id))
+                if (!AlbumExists(id))
                 {
                     return NotFound();
                 }
@@ -85,42 +82,45 @@ namespace BAMMMusic.Controllers
             return NoContent();
         }
 
-        // POST: api/Artists
+        // POST: api/Albums
         [HttpPost]
-        public ActionResult<IEnumerable<Artist>> Post([FromBody] Artist artist)
-        {
-            //all.Add(todo);
-            //return all;
-
-            _context.Artists.Add(artist);
-            _context.SaveChanges();
-            return _context.Artists.ToList();
-        }
-
-        // DELETE: api/Artists/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteArtist([FromRoute] int id)
+        public async Task<IActionResult> PostAlbum([FromBody] Album album)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var artist = await _context.Artists.FindAsync(id);
-            if (artist == null)
+            _context.Albums.Add(album);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetAlbum", new { id = album.AlbumId }, album);
+        }
+
+        // DELETE: api/Albums/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAlbum([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var album = await _context.Albums.FindAsync(id);
+            if (album == null)
             {
                 return NotFound();
             }
 
-            _context.Artists.Remove(artist);
+            _context.Albums.Remove(album);
             await _context.SaveChangesAsync();
 
-            return Ok(artist);
+            return Ok(album);
         }
 
-        private bool ArtistExists(int id)
+        private bool AlbumExists(int id)
         {
-            return _context.Artists.Any(e => e.ArtistId == id);
+            return _context.Albums.Any(e => e.AlbumId == id);
         }
     }
 }

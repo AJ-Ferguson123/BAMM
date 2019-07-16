@@ -7,64 +7,61 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BAMMMusic;
 using BAMMMusic.Model;
-using Microsoft.AspNetCore.Cors;
 
 namespace BAMMMusic.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ArtistsController : ControllerBase
+    public class CommentsController : ControllerBase
     {
         private readonly MusicContext _context;
 
-
-        public ArtistsController(MusicContext context)
+        public CommentsController(MusicContext context)
         {
             _context = context;
         }
 
-        // GET: api/Artists
+        // GET: api/Comments
         [HttpGet]
-        public IEnumerable<Artist> GetArtists()
+        public IEnumerable<Comment> GetComments()
         {
-            return _context.Artists.ToList();
-            
+            return _context.Comments.ToList();
         }
 
-        // GET: api/Artists/5
+        // GET: api/Comments/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetArtist([FromRoute] int id)
+        public async Task<IActionResult> GetComment([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var artist = await _context.Artists.FindAsync(id);
+            var comment = await _context.Comments.FindAsync(id);
 
-            if (artist == null)
+            if (comment == null)
             {
                 return NotFound();
             }
 
-            return Ok(artist);
+            return Ok(comment);
         }
 
-        // PUT: api/Artists/5
+        // PUT: api/Comments/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutArtist([FromRoute] int id, [FromBody] Artist artist)
+        public async Task<IActionResult> PutComment([FromRoute] int id, [FromBody] Comment comment)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != artist.ArtistId)
+            if (id != comment.CommentId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(artist).State = EntityState.Modified;
+            _context.Entry(comment).State = EntityState.Modified;
 
             try
             {
@@ -72,7 +69,7 @@ namespace BAMMMusic.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ArtistExists(id))
+                if (!CommentExists(id))
                 {
                     return NotFound();
                 }
@@ -85,42 +82,45 @@ namespace BAMMMusic.Controllers
             return NoContent();
         }
 
-        // POST: api/Artists
+        // POST: api/Comments
         [HttpPost]
-        public ActionResult<IEnumerable<Artist>> Post([FromBody] Artist artist)
-        {
-            //all.Add(todo);
-            //return all;
-
-            _context.Artists.Add(artist);
-            _context.SaveChanges();
-            return _context.Artists.ToList();
-        }
-
-        // DELETE: api/Artists/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteArtist([FromRoute] int id)
+        public async Task<IActionResult> PostComment([FromBody] Comment comment)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var artist = await _context.Artists.FindAsync(id);
-            if (artist == null)
+            _context.Comments.Add(comment);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetComment", new { id = comment.CommentId }, comment);
+        }
+
+        // DELETE: api/Comments/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteComment([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var comment = await _context.Comments.FindAsync(id);
+            if (comment == null)
             {
                 return NotFound();
             }
 
-            _context.Artists.Remove(artist);
+            _context.Comments.Remove(comment);
             await _context.SaveChangesAsync();
 
-            return Ok(artist);
+            return Ok(comment);
         }
 
-        private bool ArtistExists(int id)
+        private bool CommentExists(int id)
         {
-            return _context.Artists.Any(e => e.ArtistId == id);
+            return _context.Comments.Any(e => e.CommentId == id);
         }
     }
 }
