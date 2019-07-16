@@ -10,6 +10,8 @@ function pageBuild(){
     artists();
     home();
     albums();
+    songs();
+    comment();
 }
 
 function home(){
@@ -74,7 +76,65 @@ function albums(){
                 albums => {
                   document.querySelector("#root").innerHTML = Albums(albums);
                 }
-              );            
+              );    
+              function songs(){
+                const song = document.getElementById('nav_Songs');
+                song.addEventListener('click', function(){
+                    apiActions.getRequest('https://localhost:44358/api/songs', songs =>{
+                        console.log(songs)
+                        document.getElementById('root').innerHTML= Songs(songs)
+                    })
+                })
+            
+                
+            
+                document.getElementById('root').addEventListener("click", function(){
+                    if(event.target.classList.contains('add-song_submit')){
+                        const songName = event.target.parentElement.querySelector('.add-song_songname').value;
+                        const data ={
+                            id: 0,
+                            SongName: songName
+                        };
+                        apiActions.postRequest(
+                            "https://localhost:44358/api/songs",
+                            data,
+                            songs => {
+                              document.querySelector("#root").innerHTML = Songs(songs);
+                            }
+                          );
+                          
+function comments(){
+    const artist = document.getElementById('nav_Comments');
+    artist.addEventListener('click', function(){
+        apiActions.getRequest('https://localhost:44358/api/comments', comments =>{
+            console.log(comments)
+            document.getElementById('root').innerHTML= Artists(comments)
+        })
+    })
+
+    
+
+    document.getElementById('root').addEventListener("click", function(){
+        if(event.target.classList.contains('add-comment_submit')){
+            const commentName = event.target.parentElement.querySelector('.add-comment_commentname').value;
+            const data ={
+                id: 0,
+                CommentName: commentName
+            };
+            apiActions.postRequest(
+                "https://localhost:44358/api/comments",
+                data,
+                comments => {
+                  document.querySelector("#root").innerHTML = Comments(comments);
+                }
+              );
+        }
+    })
+}
+
+                    }
+                })
+            }        
         }
     })
 }
