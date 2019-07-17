@@ -6,10 +6,16 @@ export default function Artists(artists){
           <li>
             <h3>${artist.artistName}</h3>
             <h3>${artist.hometown}</h3>
+            ${artist.albums.map(album =>{
+              return`
+              <li>
+                <h4>${album.albumTitle}</h4>
+              </li>
+              `
+            })}
           </li>
-          
+                  
   `
-  
     }).join("")}
         </ul>
 

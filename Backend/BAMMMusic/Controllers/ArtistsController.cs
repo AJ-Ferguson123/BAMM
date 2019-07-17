@@ -30,7 +30,7 @@ namespace BAMMMusic.Controllers
             return _context.Artists.ToList();
             
         }
-
+        
         // GET: api/Artists/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetArtist([FromRoute] int id)
