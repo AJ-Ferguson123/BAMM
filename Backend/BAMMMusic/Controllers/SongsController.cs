@@ -7,64 +7,61 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BAMMMusic;
 using BAMMMusic.Model;
-using Microsoft.AspNetCore.Cors;
 
 namespace BAMMMusic.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ArtistsController : ControllerBase
+    public class SongsController : ControllerBase
     {
         private readonly MusicContext _context;
 
-
-        public ArtistsController(MusicContext context)
+        public SongsController(MusicContext context)
         {
             _context = context;
         }
 
-        // GET: api/Artists
+        // GET: api/Songs
         [HttpGet]
-        public IEnumerable<Artist> GetArtists()
+        public IEnumerable<Song> GetSongs()
         {
-            return _context.Artists.ToList();
-            
+            return _context.Songs.ToList();
         }
 
-        // GET: api/Artists/5
+        // GET: api/Songs/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetArtist([FromRoute] int id)
+        public async Task<IActionResult> GetSong([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var artist = await _context.Artists.FindAsync(id);
+            var song = await _context.Songs.FindAsync(id);
 
-            if (artist == null)
+            if (song == null)
             {
                 return NotFound();
             }
 
-            return Ok(artist);
+            return Ok(song);
         }
 
-        // PUT: api/Artists/5
+        // PUT: api/Songs/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutArtist([FromRoute] int id, [FromBody] Artist artist)
+        public async Task<IActionResult> PutSong([FromRoute] int id, [FromBody] Song song)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != artist.ArtistId)
+            if (id != song.SongId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(artist).State = EntityState.Modified;
+            _context.Entry(song).State = EntityState.Modified;
 
             try
             {
@@ -72,7 +69,7 @@ namespace BAMMMusic.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ArtistExists(id))
+                if (!SongExists(id))
                 {
                     return NotFound();
                 }
@@ -85,42 +82,45 @@ namespace BAMMMusic.Controllers
             return NoContent();
         }
 
-        // POST: api/Artists
+        // POST: api/Songs
         [HttpPost]
-        public ActionResult<IEnumerable<Artist>> Post([FromBody] Artist artist)
-        {
-            //all.Add(todo);
-            //return all;
-
-            _context.Artists.Add(artist);
-            _context.SaveChanges();
-            return _context.Artists.ToList();
-        }
-
-        // DELETE: api/Artists/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteArtist([FromRoute] int id)
+        public async Task<IActionResult> PostSong([FromBody] Song song)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var artist = await _context.Artists.FindAsync(id);
-            if (artist == null)
+            _context.Songs.Add(song);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetSong", new { id = song.SongId }, song);
+        }
+
+        // DELETE: api/Songs/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSong([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var song = await _context.Songs.FindAsync(id);
+            if (song == null)
             {
                 return NotFound();
             }
 
-            _context.Artists.Remove(artist);
+            _context.Songs.Remove(song);
             await _context.SaveChangesAsync();
 
-            return Ok(artist);
+            return Ok(song);
         }
 
-        private bool ArtistExists(int id)
+        private bool SongExists(int id)
         {
-            return _context.Artists.Any(e => e.ArtistId == id);
+            return _context.Songs.Any(e => e.SongId == id);
         }
     }
 }

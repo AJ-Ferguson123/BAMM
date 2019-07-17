@@ -9,12 +9,12 @@ export default function Artists(artists){
           </li> 
   `
   
-    })}
+    }).join("")}
         </ul>
 
         <section class="add-artist">
           <input class="add-artist_artistname" type="text" placeholder="Add an Artist!">
-          <button class="button" id="add-artist">Submit</button>
+          <button class="add-artist_submit button">Submit</button>
 
         </section>
           `;

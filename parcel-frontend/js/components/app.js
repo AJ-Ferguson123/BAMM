@@ -55,7 +55,7 @@ function artists(){
         }
     })
 } // end of artist
-
+//************************************************************************************************* */
 function albums(){
     const album = document.getElementById('nav_Albums');
     album.addEventListener('click', function(){
