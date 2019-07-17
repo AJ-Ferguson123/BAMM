@@ -85,31 +85,31 @@ function albums(){
             }
         })
     }//post request end
-    function songs(){
-                     const song = document.getElementById('nav_Songs');
-                     song.addEventListener('click', function(){
-                     apiActions.getRequest('https://localhost:44358/api/songs', songs =>{
-                     console.log(songs)
-                     document.getElementById('root').innerHTML= Songs(songs)
-                    })
-                })
+    // function songs(){
+    //                  const song = document.getElementById('nav_Songs');
+    //                  song.addEventListener('click', function(){
+    //                  apiActions.getRequest('https://localhost:44358/api/songs', songs =>{
+    //                  console.log(songs)
+    //                  document.getElementById('root').innerHTML= Songs(songs)
+    //                 })
+    //             })
             
                 
             
-                document.getElementById('root').addEventListener("click", function(){
-                    if(event.target.classList.contains('add-song_submit')){
-                        const songName = event.target.parentElement.querySelector('.add-song_songname').value;
-                        const data ={
-                            id: 0,
-                            SongName: songName
-                        };
-                        apiActions.postRequest(
-                            "https://localhost:44358/api/songs",
-                            data,
-                            songs => {
-                              document.querySelector("#root").innerHTML = Songs(songs);
-                            }
-                          );
+    //             document.getElementById('root').addEventListener("click", function(){
+    //                 if(event.target.classList.contains('add-song_submit')){
+    //                     const songName = event.target.parentElement.querySelector('.add-song_songname').value;
+    //                     const data ={
+    //                         id: 0,
+    //                         SongName: songName
+    //                     };
+    //                     apiActions.postRequest(
+    //                         "https://localhost:44358/api/songs",
+    //                         data,
+    //                         songs => {
+    //                           document.querySelector("#root").innerHTML = Songs(songs);
+    //                         }
+    //                       );
                           
 // function comments(){
 //                     const comment = document.getElementById('nav_Comments');
@@ -168,8 +168,8 @@ function albums(){
 //     })
 // }
 
-                    }
-                })
-            }        
+            //         }
+            //     })
+            // }        
   
 
