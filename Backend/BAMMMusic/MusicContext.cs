@@ -32,7 +32,7 @@ namespace BAMMMusic
                 {
                     ArtistId = 1,
                     ArtistName = "Prince",
-                    ArtistImage = "princeMusician1.jpg",
+                    ArtistImage = "/Images/princeMusician1.jpg/",
                     Hometown = "Minneapolis, Minnesota",
                     Age = 57,
                 },
@@ -40,7 +40,7 @@ namespace BAMMMusic
                 {
                     ArtistId = 2,
                     ArtistName = "Queen",
-                    ArtistImage = "queen2.jpg",
+                    ArtistImage = "/Images/queen2.jpg/",
                     Hometown = "London",
                     Age = 49,
                 });

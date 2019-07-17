@@ -3,14 +3,16 @@ using BAMMMusic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BAMMMusic.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20190717182132_take4")]
+    partial class take4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,8 +69,8 @@ namespace BAMMMusic.Migrations
                     b.ToTable("Artists");
 
                     b.HasData(
-                        new { ArtistId = 1, Age = 57, ArtistImage = "/Images/princeMusician1.jpg/", ArtistName = "Prince", Hometown = "Minneapolis, Minnesota" },
-                        new { ArtistId = 2, Age = 49, ArtistImage = "/Images/queen2.jpg/", ArtistName = "Queen", Hometown = "London" }
+                        new { ArtistId = 1, Age = 57, ArtistImage = "~/Images/princeMusician1.jpg/", ArtistName = "Prince", Hometown = "Minneapolis, Minnesota" },
+                        new { ArtistId = 2, Age = 49, ArtistImage = "~/Images/queen2.jpg/", ArtistName = "Queen", Hometown = "London" }
                     );
                 });
 
