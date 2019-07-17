@@ -1,4 +1,5 @@
 function getRequest(location, callback){
+   console.log(location)
    fetch(location)   
     .then(response => response.json())
     .then(jsonData => callback(jsonData))

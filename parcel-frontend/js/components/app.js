@@ -2,6 +2,9 @@ import Home from './navBar';
 import Artists from './artists';
 import apiActions from '../api/api-actions';
 import Albums from './albums';
+//import Comments from './comments';
+//import Tags from './tags';
+//import Songs from './songs'
 
 
 pageBuild();
@@ -11,7 +14,8 @@ function pageBuild(){
     home();
     albums();
     songs();
-    comment();
+   // comment();
+   // tags();
 }
 
 function home(){
@@ -50,13 +54,14 @@ function artists(){
               );
         }
     })
-}
+} // end of artist
 
 function albums(){
     const album = document.getElementById('nav_Albums');
     album.addEventListener('click', function(){
+        console.log(albums)
         apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
-            console.log(albums)
+           // console.log(albums)
             document.getElementById('root').innerHTML= Albums(albums)
         })
     })
@@ -76,13 +81,16 @@ function albums(){
                 albums => {
                   document.querySelector("#root").innerHTML = Albums(albums);
                 }
-              );    
-              function songs(){
-                const song = document.getElementById('nav_Songs');
-                song.addEventListener('click', function(){
-                    apiActions.getRequest('https://localhost:44358/api/songs', songs =>{
-                        console.log(songs)
-                        document.getElementById('root').innerHTML= Songs(songs)
+                );
+            }
+        })
+    }//post request end
+    function songs(){
+                     const song = document.getElementById('nav_Songs');
+                     song.addEventListener('click', function(){
+                     apiActions.getRequest('https://localhost:44358/api/songs', songs =>{
+                     console.log(songs)
+                     document.getElementById('root').innerHTML= Songs(songs)
                     })
                 })
             
@@ -103,39 +111,65 @@ function albums(){
                             }
                           );
                           
-function comments(){
-    const artist = document.getElementById('nav_Comments');
-    artist.addEventListener('click', function(){
-        apiActions.getRequest('https://localhost:44358/api/comments', comments =>{
-            console.log(comments)
-            document.getElementById('root').innerHTML= Artists(comments)
-        })
-    })
+// function comments(){
+//                     const comment = document.getElementById('nav_Comments');
+//                     comment.addEventListener('click', function(){
+//                     apiActions.getRequest('https://localhost:44358/api/comments', comments =>{
+//                      console.log(comments)
+//                     document.getElementById('root').innerHTML= Comments(comments)
+//                   })
+//     })
 
     
 
-    document.getElementById('root').addEventListener("click", function(){
-        if(event.target.classList.contains('add-comment_submit')){
-            const commentName = event.target.parentElement.querySelector('.add-comment_commentname').value;
-            const data ={
-                id: 0,
-                CommentName: commentName
-            };
-            apiActions.postRequest(
-                "https://localhost:44358/api/comments",
-                data,
-                comments => {
-                  document.querySelector("#root").innerHTML = Comments(comments);
-                }
-              );
-        }
-    })
-}
+//     document.getElementById('root').addEventListener("click", function(){
+//         if(event.target.classList.contains('add-comment_submit')){
+//             const commentName = event.target.parentElement.querySelector('.add-comment_commentname').value;
+//             const data ={
+//                 id: 0,
+//                 CommentName: commentName
+//             };
+//             apiActions.postRequest(
+//                 "https://localhost:44358/api/comments",
+//                 data,
+//                 comments => {
+//                   document.querySelector("#root").innerHTML = Comments(comments);
+//                 },
+//     function tags(){
+//          const tag = document.getElementById('nav_Tags');
+//                 tag.addEventListener('click', function(){
+//                 apiActions.getRequest('https://localhost:44358/api/tags', tagss =>{
+//                 console.log(tags)
+//                 document.getElementById('root').innerHTML= Artists(tags)
+//                         })
+//                     })
+                
+                    
+                
+//         document.getElementById('root').addEventListener("click", function(){
+//          if(event.target.classList.contains('add-tag_submit')){
+//         const tagName = event.target.parentElement.querySelector('.add-tag_artistname').value;
+//         const data ={
+//                      id: 0,
+//                      TagName: tagName
+//                     };
+//          apiActions.postRequest(
+//          "https://localhost:44358/api/tags",
+//          data,
+//         tags => {
+//                     document.querySelector("#root").innerHTML = Tags(tags);
+//                 }
+//                                 );
+//         }
+//                     })
+//                 }
+//               );
+//         }
+//     })
+// }
 
                     }
                 })
             }        
-        }
-    })
-}
+  
 
