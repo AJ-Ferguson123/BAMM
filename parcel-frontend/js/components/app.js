@@ -53,22 +53,22 @@ function artists(){
         }
     });
 
-    // app.addEventListener('click', function() {
-    //     if (event.target.classList.contains('delete-artistId_submit')) {
-    //       console.log("event triggered");
-    //       const artist = event.target.parentElement.querySelector('.delete-artist_id').value;
+    document.addEventListener('click', function() {
+        if (event.target.classList.contains('delete-artistId_submit')) {
+          console.log("event triggered");
+          const artist = event.target.parentElement.querySelector('.delete-artist_id').value;
 
-    //       console.log(artist);
-    //       apiActions.deleteRequest(
-    //         'https://localhost:44358/api/artists',
-    //         artist,
-    //         artists => {
-    //           console.log(artists);
-    //           document.querySelector('#root').innerHTML = Artists(artists);
-    //         }
-    //       );
-    //     }
-    //   });
+          console.log(artist);
+          apiActions.deleteRequest(
+            'https://localhost:44358/api/artists',
+            artist,
+            artists => {
+              console.log(artists);
+              document.querySelector('#root').innerHTML = Artists(artists);
+            }
+          );
+        }
+      });
 };
 
 function albums(){
@@ -96,7 +96,7 @@ function albums(){
             }
         });
 
-        app.addEventListener('click', function() {
+        document.addEventListener('click', function() {
             if (event.target.classList.contains('delete-albumId_submit')) {
               console.log("event triggered");
               const album = event.target.parentElement.querySelector('.delete-album_id').value;
