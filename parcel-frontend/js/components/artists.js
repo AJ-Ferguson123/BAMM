@@ -6,9 +6,11 @@ export default function Artists(artists){
           <li>
             <h3>${artist.artistName}</h3>
             <h3>${artist.hometown}</h3>
-          </li> 
+           
+            })}
+          </li>
+                  
   `
-  
     }).join("")}
         </ul>
 
