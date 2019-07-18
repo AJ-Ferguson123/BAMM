@@ -51,39 +51,39 @@ namespace BAMMMusic.Controllers
         }
 
         // PUT: api/Artists/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutArtist([FromRoute] int id, [FromBody] Artist artist)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutArtist([FromRoute] int id, [FromBody] Artist artist)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != artist.ArtistId)
-            {
-                return BadRequest();
-            }
+        //    if (id != artist.ArtistId)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(artist).State = EntityState.Modified;
+        //    _context.Entry(artist).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ArtistExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!ArtistExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/Artists
         [HttpPost]
@@ -99,28 +99,11 @@ namespace BAMMMusic.Controllers
 
         // DELETE: api/Artists/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteArtist([FromRoute] int id)
+        public ActionResult<IEnumerable<Artist>> Delete([FromBody] Artist artist)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var artist = await _context.Artists.FindAsync(id);
-            if (artist == null)
-            {
-                return NotFound();
-            }
-
-            _context.Artists.Remove(artist);
-            await _context.SaveChangesAsync();
-
-            return Ok(artist);
-        }
-
-        private bool ArtistExists(int id)
-        {
-            return _context.Artists.Any(e => e.ArtistId == id);
+            _context.Remove(artist);
+            _context.SaveChanges();
+            return _context.Artists;
         }
     }
 }
