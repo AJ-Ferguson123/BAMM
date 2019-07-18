@@ -16,7 +16,20 @@ function postRequest(location, requestBody, callback){
    .then(jsonData => callback(jsonData))
    .catch(err => console.log(err));
 }
+
+function deleteRequest(location, requestBody, callback){
+   fetch(location,{
+       method: "DELETE",
+       headers: {"Content-Type" : "application/json"},
+       body: JSON.stringify(requestBody)
+   })
+   .then(response => response.json())
+   .then(jsonData => callback(jsonData))
+   .catch(err => console.log(err));
+}
+
 export default{
    getRequest,
-   postRequest
+   postRequest,
+   deleteRequest
 }
