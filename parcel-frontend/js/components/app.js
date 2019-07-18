@@ -59,6 +59,7 @@ function artists(){
           const artist = event.target.parentElement.querySelector('.delete-artist_id').value;
 
           console.log(artist);
+          
           apiActions.deleteRequest(
             'https://localhost:44358/api/artists',
             artist,

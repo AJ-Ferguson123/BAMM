@@ -99,7 +99,7 @@ namespace BAMMMusic.Controllers
 
         // DELETE: api/Artists/5
         [HttpDelete]
-        public ActionResult<IEnumerable<Artist>> Delete(Artist artist)
+        public ActionResult<IEnumerable<Artist>> Remove(Artist artist)
         {
             _context.Artists.Remove(artist);
             _context.SaveChanges();
