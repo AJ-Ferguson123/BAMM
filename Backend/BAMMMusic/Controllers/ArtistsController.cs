@@ -98,12 +98,12 @@ namespace BAMMMusic.Controllers
         }
 
         // DELETE: api/Artists/5
-        [HttpDelete("{id}")]
-        public ActionResult<IEnumerable<Artist>> Delete([FromBody] Artist artist)
+        [HttpDelete]
+        public ActionResult<IEnumerable<Artist>> Delete(Artist artist)
         {
-            _context.Remove(artist);
+            _context.Artists.Remove(artist);
             _context.SaveChanges();
-            return _context.Artists;
+            return _context.Artists.ToList();
         }
     }
 }

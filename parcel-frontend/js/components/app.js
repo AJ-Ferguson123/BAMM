@@ -13,7 +13,7 @@ function pageBuild(){
     artists();
     home();
     albums();
-    songs();
+    // songs();
    // comment();
    // tags();
 }
@@ -82,7 +82,7 @@ function albums(){
     });
 
     document.getElementById('root').addEventListener('click', function(){
-        if(event.target.getElementById.contains('add-album_submit')){
+        if(event.target.classList.contains('add-album_submit')){
             const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
             const data ={
                 id: 0,
