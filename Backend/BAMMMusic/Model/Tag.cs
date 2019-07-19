@@ -10,7 +10,6 @@ namespace BAMMMusic.Model
         public int TagId { get; set; }
         public string TagTitle { get; set; }
 
-        public virtual Song Song { get; set; }
         public virtual int SongId { get; set; }
     }
 }

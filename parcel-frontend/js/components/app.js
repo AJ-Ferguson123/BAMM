@@ -85,17 +85,17 @@ function singleArtist(){
       
       const artist = event.target.parentElement.querySelector('.single-artist_id').value;
       console.log(artist)
-      const data = {
-        ArtistId: artist            
-      };      
-      console.log(data);
+      // const data = {
+      //   ArtistId: artist            
+      // };      
+      console.log(artist);
 
       apiActions.getRequest(
-        'https://localhost:44358/api/artists/',
-        data,
-        singleArtist => {
-          console.log(singleArtist);
-          document.querySelector('#root').innerHTML = SingleArtist(singleArtist);
+        'https://localhost:44358/api/artists/' + artist,
+        //artist,
+        artist => {
+          console.log(artist);
+          document.getElementById('root').innerHTML = SingleArtist(artist);
         });
     }
   });

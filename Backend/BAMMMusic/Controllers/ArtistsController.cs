@@ -35,7 +35,7 @@ namespace BAMMMusic.Controllers
         [HttpGet("{id}")]
         public ActionResult<Artist> GetArtistById([FromRoute] int id)
         {
-            var artist = _context.Artists.Single(c => c.ArtistId == id);
+            Artist artist = _context.Artists.Single(c => c.ArtistId == id);
 
             //if (artist == null)
             //{
