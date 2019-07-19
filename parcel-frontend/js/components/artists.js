@@ -14,6 +14,7 @@ export default function Artists(artists){
 
             <input class='single-artist_id' type='hidden' value="${artist.artistId}"/>
             <button class='single-artistId_submit button'>Choose Artist</button>
+            <button class='single-artistId_edit button'>Edit</button>
           </li>
                   
   `
