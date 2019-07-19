@@ -5,12 +5,15 @@ export default function Artists(artists){
        return`
           <li>
             <h3>${artist.artistName}</h3>
-            <h3>${artist.homeTown}</h3>
+            <h3>${artist.hometown}</h3>
             <input class='delete-artist_id' type='hidden' value="${artist.artistId}"/>
             
              <input class='artist_name' type='hidden' value='${artist.artistName}'>
-            <input class='artist_hometown' type='hidden' value='${artist.homeTown}'>
+            <input class='artist_hometown' type='hidden' value='${artist.hometown}'>
             <button class='delete-artistId_submit button'>Delete</button>
+
+            <input class='single-artist_id' type='hidden' value="${artist.artistId}"/>
+            <button class='single-artistId_submit button'>Choose Artist</button>
           </li>
                   
   `
