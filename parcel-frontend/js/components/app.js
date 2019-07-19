@@ -83,19 +83,19 @@ function singleArtist(){
     if (event.target.classList.contains('single-artistId_submit')) {
       console.log("event triggered");
       
-      const artist = event.target.parentElement.querySelector('.single-artist_id').value;
-      console.log(artist)
+      const artistId = event.target.parentElement.querySelector('.single-artist_id').value;
+      console.log(artistId)
       // const data = {
       //   ArtistId: artist            
       // };      
-      console.log(artist);
+      console.log(artistId);
 
       apiActions.getRequest(
-        'https://localhost:44358/api/artists/' + artist,
-        //artist,
+        'https://localhost:44358/api/artists/' + artistId,
+        //artistId,
         artist => {
           console.log(artist);
-          document.getElementById('root').innerHTML = SingleArtist(artist);
+          document.querySelector('#root').innerHTML = SingleArtist(artist);
         });
     }
   });
