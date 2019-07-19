@@ -79,7 +79,7 @@ function artists(){
             console.log('event triggered');
             const editartist_id = event.target.parentElement.querySelector('.edit-artist_id').value;
             const editartist_name = event.target.parentElement.querySelector('.edit-artist_name').value;
-            const editartist_homeTown = event.target.parentElement.querySelector('.edit-artist_hometown').value;
+            const editartist_hometown = event.target.parentElement.querySelector('.edit-artist_hometown').value;
             console.log(editartist_id)
             console.log(editartist_name)
             console.log(editartist_hometown)
@@ -89,8 +89,8 @@ function artists(){
                 Hometown: editartist_hometown
             };
             console.log(data);
-            apiActions.putRequest('https://localhost:44301/api/artist', data, artists => {
-                    console.log(data);
+            apiActions.putRequest('https://localhost:44358/api/artists', data, artists => {
+                    console.log("list of artists from controller: " + artists);
                     document.querySelector('#root').innerHTML = Artists(artists);
                 }
             );

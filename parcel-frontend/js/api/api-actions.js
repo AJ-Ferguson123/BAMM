@@ -27,13 +27,17 @@ function deleteRequest(location, requestBody, callback){
    .then(jsonData => callback(jsonData))
    .catch(err => console.log(err));
 }
+
 function putRequest(location, requestBody, callback){
+   console.log("trying to fetch");
    fetch(location,{
        method: "PUT",
        headers: {"Content-Type" : "application/json"},
        body: JSON.stringify(requestBody)
    })
+   .then(returned => console.log("after fetch: " + returned))
    .then(response => response.json())
+   .then(res => console.log("after json conversion: " + res))
    .then(jsonData => callback(jsonData))
    .catch(err => console.log(err));
 }

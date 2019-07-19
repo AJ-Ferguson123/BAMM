@@ -13,11 +13,11 @@ export default function Artists(artists){
             
 
             <section class='edit-artist-box'>
-   <input class='artist_id' type='hidden' value='${artist.artistId}'>
-   <input class='edit-artist_name' type='text' value='${artist.artistName}'>
-       <input class='edit-artist_hometown' type='text' value='${artist.hometown}'>
-       <button class='edit-artist_submit'>Submit</button>
-   </section>
+                <input class='edit-artist_id' type='hidden' value='${artist.artistId}'>
+                <input class='edit-artist_name' type='text' value='${artist.artistName}'>
+                <input class='edit-artist_hometown' type='text' value='${artist.hometown}'>
+                <button class='edit-artist_submit'>Submit</button>
+            </section>
    
    <section class='add-artist'>
        <input class='add-artist_name' type='text' placeholder='Add artist name...'>

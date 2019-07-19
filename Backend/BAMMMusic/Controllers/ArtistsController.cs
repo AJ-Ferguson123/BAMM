@@ -105,12 +105,13 @@ namespace BAMMMusic.Controllers
             _context.SaveChanges();
             return _context.Artists.ToList();
         }
+
         [HttpPut]
         public ActionResult<IEnumerable<Artist>> Put([FromBody]Artist artist)
         {
             _context.Artists.Update(artist);
             _context.SaveChanges();
-            return _context.Artists.ToList();
+            return _context.Artists;
         }
     }
 }
