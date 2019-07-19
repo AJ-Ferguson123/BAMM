@@ -33,21 +33,17 @@ namespace BAMMMusic.Controllers
 
         // GET: api/Artists/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetArtist([FromRoute] int id)
+        public ActionResult<Artist> GetArtistById([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            var artist = _context.Artists.Single(c => c.ArtistId == id);
 
-            var artist = await _context.Artists.FindAsync(id);
+            //if (artist == null)
+            //{
+            //    return NotFound();
+            //}
 
-            if (artist == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(artist);
+            return artist;
+            ;
         }
 
         // PUT: api/Artists/5

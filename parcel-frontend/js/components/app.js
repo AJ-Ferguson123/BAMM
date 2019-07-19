@@ -2,6 +2,7 @@ import Home from './navBar';
 import Artists from './artists';
 import apiActions from '../api/api-actions';
 import Albums from './albums';
+import SingleArtist from './singleArtist';
 //import Comments from './comments';
 //import Tags from './tags';
 //import Songs from './songs'
@@ -13,6 +14,7 @@ function pageBuild(){
     artists();
     home();
     albums();
+    singleArtist();
     // songs();
    // comment();
    // tags();
@@ -76,6 +78,30 @@ function artists(){
       });
 };
 
+function singleArtist(){
+  document.addEventListener('click', function() {
+    if (event.target.classList.contains('single-artistId_submit')) {
+      console.log("event triggered");
+      
+      const artist = event.target.parentElement.querySelector('.single-artist_id').value;
+      console.log(artist)
+      const data = {
+        ArtistId: artist            
+      };      
+      console.log(data);
+
+      apiActions.getRequest(
+        'https://localhost:44358/api/artists/',
+        data,
+        singleArtist => {
+          console.log(singleArtist);
+          document.querySelector('#root').innerHTML = SingleArtist(singleArtist);
+        });
+    }
+  });
+}
+
+
 function albums(){
     const album = document.getElementById('nav_Albums');
     album.addEventListener('click', function(){
@@ -116,6 +142,7 @@ function albums(){
             }
           });
     };
+
     
     //post request end
     // function songs(){
