@@ -56,13 +56,17 @@ function artists(){
     document.addEventListener('click', function() {
         if (event.target.classList.contains('delete-artistId_submit')) {
           console.log("event triggered");
+          
           const artist = event.target.parentElement.querySelector('.delete-artist_id').value;
-
-          console.log(artist);
+          console.log(artist)
+          const data = {
+            ArtistId: artist
+          };      
+          console.log(data);
 
           apiActions.deleteRequest(
-            'https://localhost:44358/api/artists' +artist,
-            artist,
+            'https://localhost:44358/api/artists',
+            data,
             artists => {
               console.log(artists);
               document.querySelector('#root').innerHTML = Artists(artists);

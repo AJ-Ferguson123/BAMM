@@ -15,7 +15,7 @@ namespace BAMMMusic.Controllers
     [ApiController]
     public class ArtistsController : ControllerBase
     {
-        private readonly MusicContext _context;
+        private MusicContext _context;
 
 
         public ArtistsController(MusicContext context)
@@ -28,9 +28,9 @@ namespace BAMMMusic.Controllers
         public IEnumerable<Artist> GetArtists()
         {
             return _context.Artists.ToList();
-            
+
         }
-        
+
         // GET: api/Artists/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetArtist([FromRoute] int id)
@@ -98,29 +98,12 @@ namespace BAMMMusic.Controllers
         }
 
         // DELETE: api/Artists/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteArtist([FromRoute] int id)
+        [HttpDelete]
+        public ActionResult<IEnumerable<Artist>> Delete([FromBody]Artist artist)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var artist = await _context.Artists.FindAsync(id);
-            if (artist == null)
-            {
-                return NotFound();
-            }
-
             _context.Artists.Remove(artist);
-            await _context.SaveChangesAsync();
-
-            return Ok(artist);
-        }
-
-        private bool ArtistExists(int id)
-        {
-            return _context.Artists.Any(e => e.ArtistId == id);
+            _context.SaveChanges();
+            return _context.Artists.ToList();
         }
     }
 }
