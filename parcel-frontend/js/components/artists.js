@@ -10,11 +10,31 @@ export default function Artists(artists){
             
              <input class='artist_name' type='hidden' value='${artist.artistName}'>
             <input class='artist_hometown' type='hidden' value='${artist.hometown}'>
+            
+
+            <section class='edit-artist-box'>
+   <input class='artist_id' type='hidden' value='${artist.artistId}'>
+   <input class='edit-artist_name' type='text' value='${artist.artistName}'>
+       <input class='edit-artist_hometown' type='text' value='${artist.hometown}'>
+       <button class='edit-artist_submit'>Submit</button>
+   </section>
+   
+   <section class='add-artist'>
+       <input class='add-artist_name' type='text' placeholder='Add artist name...'>
+       <button class='add-artist_submit'>Submit</button>       
+   </section>
+
+           <input class='artist_id' type='hidden' value='${artist.artistName}'>
+           <input class='artist_name' type='hidden' value='${artist.artistName}'>
+           <input class='artist_hometown' type='hidden' value='${artist.hometown}'>
+               
+               
             <button class='delete-artistId_submit button'>Delete</button>
 
             <input class='single-artist_id' type='hidden' value="${artist.artistId}"/>
             <button class='single-artistId_submit button'>Choose Artist</button>
-            <button class='single-artistId_edit button'>Edit</button>
+            <input class='edit-artist_id' type='hidden' value="${artist.artistId}"/>
+            
           </li>
                   
   `
@@ -29,6 +49,6 @@ export default function Artists(artists){
             <input class="delete-artist_artistName" type="text" placeholder= "Delete artist.">
             <button class= "delete-artist_submit">Submit</button>
         </section>
-
+        
           `;
   }
