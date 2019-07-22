@@ -146,10 +146,10 @@ function albums(){
 
         document.addEventListener('click', function() {
             if (event.target.classList.contains('delete-albumId_submit')) {
-              console.log("event triggered");
+              console.log("delete event triggered");                  
               const album = event.target.parentElement.querySelector('.delete-album_id').value;
     
-              console.log("just before delet request"+album)
+              console.log("just before delete request"+album)
               const data = {
                 AlbumId: album
               
