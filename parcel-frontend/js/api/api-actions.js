@@ -6,6 +6,14 @@ function getRequest(location, callback){
     .catch(err => console.log(err))
 }
 
+function getRequestId(location, callback){
+   console.log(location)
+   fetch(location)
+  .then(response => response.json())
+  .then(jsonData => callback(jsonData))
+   .catch(err => console.log(err))
+}
+
 function postRequest(location, requestBody, callback){
    fetch(location,{
        method: "POST",
@@ -31,5 +39,6 @@ function deleteRequest(location, requestBody, callback){
 export default{
    getRequest,
    postRequest,
-   deleteRequest
+   deleteRequest,
+   getRequestId
 }

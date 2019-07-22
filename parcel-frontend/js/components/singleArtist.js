@@ -2,17 +2,18 @@
 //     return '<p>This is an artist page</p>';
 // };
 
-export function SingleArtist(singleArtist){
+export default function SingleArtist(singleArtist){
+  console.log("in single artist component");
     return`
         <ul>
+        <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
         <h3>${singleArtist.artistName}</h3>
         <h3>${singleArtist.hometown}</h3>
-        <h3>${aingleArtist.age}</h3>
-        <h3>${artist.artistImage}</h3>
-        <input class='single-artist_id' type='hidden' value="${artist.artistId}"/>
+        <h3>${singleArtist.age}</h3>
+        <h3>${singleArtist.artistImage}</h3>
 
 
-      ${singleArtist.map(album =>{
+      ${singleArtist.albums.map(album =>{
        return`
           <li>
             <h3>${album.albumTitle}</h3>
@@ -27,5 +28,5 @@ export function SingleArtist(singleArtist){
               }).join("")}
                   </ul>
                   `;
-                }
+                 }
               

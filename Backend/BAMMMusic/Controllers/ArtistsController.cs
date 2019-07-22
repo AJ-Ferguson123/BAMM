@@ -33,7 +33,7 @@ namespace BAMMMusic.Controllers
 
         // GET: api/Artists/5
         [HttpGet("{id}")]
-        public ActionResult<Artist> GetArtistById([FromRoute] int id)
+        public ActionResult<Artist> GetArtistById(int id)
         {
             Artist artist = _context.Artists.Single(c => c.ArtistId == id);
 
@@ -43,7 +43,6 @@ namespace BAMMMusic.Controllers
             //}
 
             return artist;
-            ;
         }
 
         // PUT: api/Artists/5

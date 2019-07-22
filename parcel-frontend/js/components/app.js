@@ -86,14 +86,15 @@ function singleArtist(){
       const artistId = event.target.parentElement.querySelector('.single-artist_id').value;
       console.log(artistId)
       // const data = {
-      //   ArtistId: artist            
+      //   ArtistId: artistId            
       // };      
       console.log(artistId);
 
-      apiActions.getRequest(
+      apiActions.getRequestId(
         'https://localhost:44358/api/artists/' + artistId,
-        //artistId,
+        //data,
         artist => {
+          console.log("checking artist")
           console.log(artist);
           document.querySelector('#root').innerHTML = SingleArtist(artist);
         });
