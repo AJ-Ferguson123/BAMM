@@ -43,7 +43,7 @@ namespace BAMMMusic.Controllers
             //}
 
             return artist;
-            ;
+            
         }
 
         // PUT: api/Artists/5
