@@ -130,7 +130,7 @@ function albums(){
     });
 
     document.getElementById('root').addEventListener('click', function(){
-        if(event.target.classList.contains('add-album_submit')){
+        if(event.target.classList.contains('add-artist_submit')){
             const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
             const data ={
                 id: 0,

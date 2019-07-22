@@ -26,7 +26,7 @@ export default function Albums(albums){
 
         <section class="add-album">
           <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
-          <button class="button" id="add-album_submit">Submit</button>
+          <button class="add-album_submit button">Submit</button>
 
         </section>
           `;
