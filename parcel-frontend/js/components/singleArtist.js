@@ -1,7 +1,3 @@
-// export function SingleArtist(){
-//     return '<p>This is an artist page</p>';
-// };
-
 export default function SingleArtist(singleArtist){
   console.log("in single artist component");
     return`
