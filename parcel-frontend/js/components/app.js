@@ -1,7 +1,7 @@
 import Home from './navBar';
 import Artists from './artists';
 import apiActions from '../api/api-actions';
-//import Albums from './albums';
+import Albums from './albums';
 //import Comments from './comments';
 //import Tags from './tags';
 //import Songs from './songs'
@@ -12,8 +12,9 @@ pageBuild();
 function pageBuild(){
     artists();
     home();
-    //albums();
-    //();
+    albums();
+
+       //();
    // comment();
    // tags();
 }
@@ -96,7 +97,7 @@ function artists(){
             );
         }
     });
- 
+  };
  
       // document.addEventListener('click', function() {
       //   if (event.target.classList.contains('edit-artistId_button')) {
@@ -116,13 +117,14 @@ function artists(){
       //         document.querySelector('#root').innerHTML = Artists(artists);
       //       });
 //};
-
+  
 function albums(){
     const album = document.getElementById('nav_Albums');
+    console.log(album)
     album.addEventListener('click', function(){
-        console.log(albums)
-        apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
-           // console.log(albums)
+            console.log("album="+album)
+            apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
+            console.log(albums)
             document.getElementById('root').innerHTML= Albums(albums)
         })
     });
@@ -147,9 +149,14 @@ function albums(){
               console.log("event triggered");
               const album = event.target.parentElement.querySelector('.delete-album_id').value;
     
-              console.log(album);
+              console.log("just before delet request"+album)
+              const data = {
+                AlbumId: album
+              
+              };
+              console.log(data);
               apiActions.deleteRequest('https://localhost:44358/api/albums',
-                album,
+                data,
                 albums => {
                   console.log(albums);
                   document.querySelector('#root').innerHTML = Albums(albums);
@@ -157,8 +164,8 @@ function albums(){
             }
           });
     };
+     
     
-  };    
     
 
     

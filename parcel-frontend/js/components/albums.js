@@ -10,6 +10,11 @@ export default function Albums(albums){
             <h3>${album.date}</h3>
             <input class='delete-album_id' type='hidden' value="${album}"/>
             <button class='delete-albumId_submit button'>Delete</button>
+            <section class="add-album">
+          <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
+          <button class="button" id="add-album_submit">Submit</button>
+
+        </section>
           </li>
           `
           
@@ -17,10 +22,10 @@ export default function Albums(albums){
         .join("")}
         </ul>
 
-        <section class="add-album">
-          <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
-          <button class="button" id="add-album_submit">Submit</button>
+        // <section class="add-album">
+        //   <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
+        //   <button class="button" id="add-album_submit">Submit</button>
 
-        </section>
+        // </section>
           `;
   }
