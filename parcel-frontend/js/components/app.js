@@ -4,8 +4,8 @@ import apiActions from '../api/api-actions';
 import SingleArtist from './singleArtist';
  import Albums from './albums';
 //import Comments from './comments';
-//import Tags from './tags';
-//import Songs from './songs'
+//import Tags from './tags'
+import Songs from './songs'
 
 
 pageBuild();
@@ -16,7 +16,7 @@ function pageBuild(){
     singleArtist();
     albums();
 
-    // songs()
+     songs();
    // comment();
    // tags();
 }
@@ -231,32 +231,77 @@ if(event.target.classList.contains('add-album_submit')){
 
 
     
-    //post request end
-    // function songs(){
-    //                  const song = document.getElementById('nav_Songs');
-    //                  song.addEventListener('click', function(){
-    //                  apiActions.getRequest('https://localhost:44358/api/songs', songs =>{
-    //                  console.log(songs)
-    //                  document.getElementById('root').innerHTML= Songs(songs)
-    //                 })
-    //             })
+    
+    function songs(){
+                     const song = document.getElementById('nav_Songs');
+                     song.addEventListener('click', function(){
+                     apiActions.getRequest('https://localhost:44358/api/songs', songs =>{
+                     console.log(songs)
+                     document.getElementById('root').innerHTML= Songs(songs)
+                    })
+                })
             
                 
             
-    //             document.getElementById('root').addEventListener("click", function(){
-    //                 if(event.target.classList.contains('add-song_submit')){
-    //                     const songName = event.target.parentElement.querySelector('.add-song_songname').value;
-    //                     const data ={
-    //                         id: 0,
-    //                         SongName: songName
-    //                     };
-    //                     apiActions.postRequest(
-    //                         "https://localhost:44358/api/songs",
-    //                         data,
-    //                         songs => {
-    //                           document.querySelector("#root").innerHTML = Songs(songs);
-    //                         }
-    //                       );
+                document.getElementById('root').addEventListener("click", function(){
+                    if(event.target.classList.contains('add-song_submit')){
+                        const songName = event.target.parentElement.querySelector('.add-song_songname').value;
+                        const data ={
+                            id: 0,
+                            SongName: songName
+                        };
+                        apiActions.postRequest(
+                            "https://localhost:44358/api/songs",
+                            data,
+                            songs => {
+                              document.querySelector("#root").innerHTML = Songs(songs);
+                            }
+                        );}})
+
+                        document.addEventListener('click', function() {
+                          if (event.target.classList.contains('delete-songId_submit')) {
+                            console.log("event triggered");
+                            
+                            const song = event.target.parentElement.querySelector('.delete-song_id').value;
+                            console.log(song)
+                            const data = {
+                              SongId: song
+                            };      
+                            console.log(data);
+                  
+                            apiActions.deleteRequest(
+                              'https://localhost:44358/api/songs',
+                              data,
+                              songs => {
+                                console.log(songs);
+                                document.querySelector('#root').innerHTML = Songs(songs);
+                              }
+                            );
+                          }
+                        });
+                        document.getElementById('root').addEventListener('click', function(){
+                          if (event.target.classList.contains('edit-song_submit')){
+                              console.log('event triggered');
+                              const editsong_id = event.target.parentElement.querySelector('.edit-song_id').value;
+                              const editsong_title = event.target.parentElement.querySelector('.edit-song_title').value;
+                              const editsong_duration = event.target.parentElement.querySelector('.edit-song_duration').value;
+                              console.log(editsong_id)
+                              console.log(editsong_title)
+                              console.log(editsong_duration)
+                              const data = {
+                                  SongId: editsong_id,
+                                  SongTitle: editsong_title,
+                                  Duration: editsong_duration
+                              };
+                              console.log(data);
+                              apiActions.putRequest('https://localhost:44358/api/songs', data, songs => {
+                                      console.log("list of songs from controller: " + songs);
+                                      document.querySelector('#root').innerHTML = Songs(songs);
+                                  }
+                              );
+                          }
+                      });
+                    };
                           
 // function comments(){
 //                     const comment = document.getElementById('nav_Comments');
@@ -319,4 +364,4 @@ if(event.target.classList.contains('add-album_submit')){
             //     })
             // }        
   
-         
+                  
