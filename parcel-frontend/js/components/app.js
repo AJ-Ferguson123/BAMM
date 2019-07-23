@@ -2,6 +2,7 @@ import Home from './navBar';
 import Artists from './artists';
 import apiActions from '../api/api-actions';
 import Albums from './albums';
+import SingleArtist from './singleArtist';
 //import Comments from './comments';
 //import Tags from './tags';
 //import Songs from './songs'
@@ -13,8 +14,8 @@ function pageBuild(){
     artists();
     home();
     albums();
-
-       //();
+    singleArtist();
+    // songs()
    // comment();
    // tags();
 }
@@ -75,6 +76,7 @@ function artists(){
           );
         }
       });
+
       document.getElementById('root').addEventListener('click', function(){
         if (event.target.classList.contains('edit-artist_submit')){
             console.log('event triggered');
@@ -118,6 +120,35 @@ function artists(){
       //       });
 //};
   
+
+};
+
+function singleArtist(){
+  document.addEventListener('click', function() {
+    if (event.target.classList.contains('single-artistId_submit')) {
+      console.log("event triggered");
+      
+      const artistId = event.target.parentElement.querySelector('.single-artist_id').value;
+      console.log(artistId)
+      // const data = {
+      //   ArtistId: artistId            
+      // };      
+      console.log(artistId);
+
+      apiActions.getRequestId(
+        'https://localhost:44358/api/artists/' + artistId,
+        //data,
+        artist => {
+          console.log("checking artist")
+          console.log(artist);
+          document.querySelector('#root').innerHTML = SingleArtist(artist);
+        });
+    }
+  });
+}
+
+
+
 function albums(){
     const album = document.getElementById('nav_Albums');
     console.log(album)
@@ -164,9 +195,11 @@ function albums(){
             }
           });
     };
+
      
     
     
+
 
     
     //post request end

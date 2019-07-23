@@ -45,10 +45,12 @@ export default function Artists(artists){
           <input class="add-artist_artistname" type="text" placeholder="Add an Artist!">
           <button class="button">Submit</button>
         </section>
+
         <section class="delete-artist">
             <input class="delete-artist_artistName" type="text" placeholder= "Delete artist.">
             <button class= "delete-artist_submit">Submit</button>
         </section>
+
         
           `;
   }
