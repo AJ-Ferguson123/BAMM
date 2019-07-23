@@ -18,12 +18,12 @@ export default function Albums(albums){
 
         </section>
           </li>
-          `
           
+          `
         })
         .join("")}
         </ul>
-
+          
         <section class="add-album">
           <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
           <button class="add-album_submit button">Submit</button>
