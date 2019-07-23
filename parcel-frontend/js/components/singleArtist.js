@@ -5,7 +5,7 @@ export default function SingleArtist(singleArtist){
         <h3>${singleArtist.artistName}</h3>
         <h3>${singleArtist.hometown}</h3>
         <h3>${singleArtist.age}</h3>
-        <h3>${singleArtist.artistImage}</h3>
+        <img src = ${singleArtist.artistImage} alt= "picture of artist"/>
         <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
 
 
@@ -26,6 +26,7 @@ export default function SingleArtist(singleArtist){
                   <section class="add-album">        
                   <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
                   <button class="add-album_submit" id="add-album_submit">Submit</button>
+                  <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
             
                 </section>
                   `;
