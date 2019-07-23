@@ -19,10 +19,7 @@ export default function Artists(artists){
                 <button class='edit-artist_submit'>Submit</button>
             </section>
    
-   <section class='add-artist'>
-       <input class='add-artist_name' type='text' placeholder='Add artist name...'>
-       <button class='add-artist_submit'>Submit</button>       
-   </section>
+   
 
            <input class='artist_id' type='hidden' value='${artist.artistName}'>
            <input class='artist_name' type='hidden' value='${artist.artistName}'>
@@ -45,10 +42,7 @@ export default function Artists(artists){
           <input class="add-artist_artistname" type="text" placeholder="Add an Artist!">
           <button class="button">Submit</button>
         </section>
-        <section class="delete-artist">
-            <input class="delete-artist_artistName" type="text" placeholder= "Delete artist.">
-            <button class= "delete-artist_submit">Submit</button>
-        </section>
+        
         
           `;
   }
