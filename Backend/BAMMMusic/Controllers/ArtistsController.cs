@@ -46,7 +46,7 @@ namespace BAMMMusic.Controllers
             
         }
 
-        // PUT: api/Artists/5
+        //PUT: api/Artists/5
         //[HttpPut("{id}")]
         //public async Task<IActionResult> PutArtist([FromRoute] int id, [FromBody] Artist artist)
         //{
@@ -100,6 +100,14 @@ namespace BAMMMusic.Controllers
             _context.Artists.Remove(artist);
             _context.SaveChanges();
             return _context.Artists.ToList();
+        }
+
+        [HttpPut]
+        public ActionResult<IEnumerable<Artist>> Put([FromBody]Artist artist)
+        {
+            _context.Artists.Update(artist);
+            _context.SaveChanges();
+            return _context.Artists;
         }
     }
 }

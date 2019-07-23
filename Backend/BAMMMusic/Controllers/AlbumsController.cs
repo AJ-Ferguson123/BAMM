@@ -69,11 +69,11 @@ namespace BAMMMusic.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AlbumExists(id))
-                {
-                    return NotFound();
-                }
-                else
+                //if (!AlbumExists(id))
+                //{
+                //    return NotFound();
+                //}
+                //else
                 {
                     throw;
                 }
@@ -98,29 +98,17 @@ namespace BAMMMusic.Controllers
         }
 
         // DELETE: api/Albums/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAlbum([FromRoute] int id)
+        [HttpDelete]
+
+        public ActionResult<IEnumerable<Album>> Delete([FromBody]Album album)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var album = await _context.Albums.FindAsync(id);
-            if (album == null)
-            {
-                return NotFound();
-            }
-
             _context.Albums.Remove(album);
-            await _context.SaveChangesAsync();
-
-            return Ok(album);
+            _context.SaveChanges();
+            return _context.Albums.ToList();
         }
 
-        private bool AlbumExists(int id)
-        {
-            return _context.Albums.Any(e => e.AlbumId == id);
-        }
+
+
+
     }
 }

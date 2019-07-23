@@ -15,7 +15,7 @@ function pageBuild(){
     home();
     albums();
     singleArtist();
-    // songs();
+    // songs()
    // comment();
    // tags();
 }
@@ -40,7 +40,7 @@ function artists(){
 
     document.getElementById('root').addEventListener('click', function(){
         if(event.target.classList.contains('add-artist_submit')){
-            const artistName = event.target.parentElement.querySelector('.add-artist_artistname').value;
+            const artistName = event.target.parentElement.querySelector('.add-artist_name').value;
             const data ={
                 id: 0,
                 ArtistName: artistName
@@ -76,6 +76,51 @@ function artists(){
           );
         }
       });
+
+      document.getElementById('root').addEventListener('click', function(){
+        if (event.target.classList.contains('edit-artist_submit')){
+            console.log('event triggered');
+            const editartist_id = event.target.parentElement.querySelector('.edit-artist_id').value;
+            const editartist_name = event.target.parentElement.querySelector('.edit-artist_name').value;
+            const editartist_hometown = event.target.parentElement.querySelector('.edit-artist_hometown').value;
+            console.log(editartist_id)
+            console.log(editartist_name)
+            console.log(editartist_hometown)
+            const data = {
+                ArtistId: editartist_id,
+                ArtistName: editartist_name,
+                Hometown: editartist_hometown
+            };
+            console.log(data);
+            apiActions.putRequest('https://localhost:44358/api/artists', data, artists => {
+                    console.log("list of artists from controller: " + artists);
+                    document.querySelector('#root').innerHTML = Artists(artists);
+                }
+            );
+        }
+    });
+  };
+ 
+      // document.addEventListener('click', function() {
+      //   if (event.target.classList.contains('edit-artistId_button')) {
+      //     console.log("event triggered"); 
+      //     console.log(event.target.parentElement);
+      //     const artist = event.target.parentElement.querySelector('.edit-artist_id').value;
+  
+      //     console.log(artist);
+      //     const data = {
+      //       ArtistId: artist
+            
+      //     }
+      //     apiActions.putRequest('https://localhost:44358/api/artists',
+      //       data,
+      //       artists => {
+      //         console.log(artists);
+      //         document.querySelector('#root').innerHTML = Artists(artists);
+      //       });
+//};
+  
+
 };
 
 function singleArtist(){
@@ -103,18 +148,20 @@ function singleArtist(){
 }
 
 
+
 function albums(){
     const album = document.getElementById('nav_Albums');
+    console.log(album)
     album.addEventListener('click', function(){
-        console.log(albums)
-        apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
-           // console.log(albums)
+            console.log("album="+album)
+            apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
+            console.log(albums)
             document.getElementById('root').innerHTML= Albums(albums)
         })
     });
 
     document.getElementById('root').addEventListener('click', function(){
-        if(event.target.classList.contains('add-album_submit')){
+        if(event.target.classList.contains('add-artist_submit')){
             const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
             const data ={
                 id: 0,
@@ -130,12 +177,17 @@ function albums(){
 
         document.addEventListener('click', function() {
             if (event.target.classList.contains('delete-albumId_submit')) {
-              console.log("event triggered");
+              console.log("delete event triggered");                  
               const album = event.target.parentElement.querySelector('.delete-album_id').value;
     
-              console.log(album);
+              console.log("just before delete request"+album)
+              const data = {
+                AlbumId: album
+              
+              };
+              console.log(data);
               apiActions.deleteRequest('https://localhost:44358/api/albums',
-                album,
+                data,
                 albums => {
                   console.log(albums);
                   document.querySelector('#root').innerHTML = Albums(albums);
@@ -143,6 +195,11 @@ function albums(){
             }
           });
     };
+
+     
+    
+    
+
 
     
     //post request end
@@ -233,4 +290,4 @@ function albums(){
             //     })
             // }        
   
-
+  
