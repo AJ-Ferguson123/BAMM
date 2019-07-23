@@ -84,17 +84,12 @@ namespace BAMMMusic.Controllers
 
         // POST: api/Albums
         [HttpPost]
-        public async Task<IActionResult> PostAlbum([FromBody] Album album)
+        public ActionResult<IEnumerable<Album>> Post([FromBody] Album album)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
+           
             _context.Albums.Add(album);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetAlbum", new { id = album.AlbumId }, album);
+            _context.SaveChanges();
+            return _context.Albums.ToList();
         }
 
         // DELETE: api/Albums/5
