@@ -25,7 +25,7 @@ export default function SingleArtist(singleArtist){
                   </ul>
                   <section class="add-album">        
                     <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
-                    <button class="add-album_submit" id="add-album_submit">Submit</button>
+                    <button class="add-album_submit">Submit</button>
                     <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
             
                   </section>

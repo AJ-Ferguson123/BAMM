@@ -7,23 +7,19 @@ export default function SingleSong(singleSong){
         <input class='single-song_id' type='hidden' value="${singleSong.songId}"/>
 
 
-      ${singleSong.songs.map(song =>{
+      ${singleSong.Comments.map(comment =>{
        return`
           <li>
-            <h3>${album.albumTitle}</h3>
-            <h3>${album.albumImage}</h3>
-            <input class='album_id' type='hidden' value="${album.albumId}"/>
-            <button class='albumId_submit button'>Choose Album</button>
-
-
-            </li>`
+            <h3>${comment.commentDetails}</h3>
+            <input class='comment_id' type='hidden' value="${comment.commentId}"/>
+          </li>`
                   
             
               }).join("")}
                   </ul>
-                  <section class="add-album">        
-                  <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
-                  <button class="add-album_submit" id="add-album_submit">Submit</button>
+                  <section class="add-song">        
+                  <input class="add-comment_commentdetail" type="text" placeholder="Add a Comment!">
+                  <button class="add-comment_submit">Submit</button>
             
                 </section>
                   `;
