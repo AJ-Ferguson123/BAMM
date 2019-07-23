@@ -1,4 +1,4 @@
-import Home from './navBar';
+import Home from './Home';
 import Artists from './artists';
 import apiActions from '../api/api-actions';
 import SingleArtist from './singleArtist';

@@ -68,7 +68,7 @@ namespace BAMMMusic
                 {
                     AlbumId = 3,
                     AlbumTitle = "Live Killers",
-                    AlbumImage = "",
+                    AlbumImage = "https://upload.wikimedia.org/wikipedia/en/0/05/Queen_Live_Killers.png",
                     Label = "EMI-Elektra",
                     ArtistId = 2,
                     Date = 1979
