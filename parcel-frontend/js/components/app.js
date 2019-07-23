@@ -2,7 +2,7 @@ import Home from './navBar';
 import Artists from './artists';
 import apiActions from '../api/api-actions';
 import SingleArtist from './singleArtist';
- import Albums from './albums';
+import Albums from './albums';
 //import Comments from './comments';
 //import Tags from './tags'
 import Songs from './songs'
@@ -222,7 +222,7 @@ if(event.target.classList.contains('add-album_submit')){
            });
      };
     
-//   };    
+  
     
 
      
