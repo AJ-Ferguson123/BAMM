@@ -9,7 +9,7 @@ export default function Albums(albums){
             <h3>${album.albumTitle}</h3>
             <h3>${album.label}</h3>            
             <h3>${album.date}</h3>
-            <img src= ${album.albumImage} alt= "picture of album cover"/>
+            <img src=${album.albumImage} alt= "picture of album cover"/>
 
             <input class='delete-album_id' type='hidden' value="${album.albumId}"/>
             <button class='delete-albumId_submit button'>Delete</button>
