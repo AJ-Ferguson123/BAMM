@@ -30,21 +30,11 @@ namespace BAMMMusic.Controllers
 
         // GET: api/Songs/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetSong([FromRoute] int id)
+        public ActionResult<Song> GetSongById(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            Song song = _context.Songs.Single(c => c.SongId == id);                    
 
-            var song = await _context.Songs.FindAsync(id);
-
-            if (song == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(song);
+            return song;
         }
 
         // PUT: api/Songs/5
@@ -84,17 +74,14 @@ namespace BAMMMusic.Controllers
 
         // POST: api/Songs
         [HttpPost]
-        public async Task<IActionResult> PostSong([FromBody] Song song)
+        public ActionResult<IEnumerable<Song>> Post([FromBody] Song song)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //all.Add(todo);
+            //return all;
 
             _context.Songs.Add(song);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetSong", new { id = song.SongId }, song);
+            _context.SaveChanges();
+            return _context.Songs.ToList();
         }
 
         // DELETE: api/Songs/5
