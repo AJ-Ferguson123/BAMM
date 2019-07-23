@@ -3,14 +3,16 @@ using BAMMMusic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BAMMMusic.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20190719153441_artistController")]
+    partial class artistController
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,7 +164,7 @@ namespace BAMMMusic.Migrations
 
             modelBuilder.Entity("BAMMMusic.Model.Album", b =>
                 {
-                    b.HasOne("BAMMMusic.Model.Artist")
+                    b.HasOne("BAMMMusic.Model.Artist", "Artist")
                         .WithMany("Albums")
                         .HasForeignKey("ArtistId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -186,7 +188,7 @@ namespace BAMMMusic.Migrations
 
             modelBuilder.Entity("BAMMMusic.Model.Tag", b =>
                 {
-                    b.HasOne("BAMMMusic.Model.Song")
+                    b.HasOne("BAMMMusic.Model.Song", "Song")
                         .WithMany("Tags")
                         .HasForeignKey("SongId")
                         .OnDelete(DeleteBehavior.Cascade);

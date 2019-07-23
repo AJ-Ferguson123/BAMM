@@ -14,8 +14,12 @@ function pageBuild(){
     artists();
     home();
     singleArtist();
+<<<<<<< HEAD
     // albums();
     //();
+=======
+    // songs()
+>>>>>>> 66486244940ec0277d6fa9b97f8e0404b2dcb2d0
    // comment();
    // tags();
 }
@@ -76,6 +80,10 @@ function artists(){
           );
         }
       });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66486244940ec0277d6fa9b97f8e0404b2dcb2d0
       document.getElementById('root').addEventListener('click', function(){
         if (event.target.classList.contains('edit-artist_submit')){
             console.log('event triggered');
@@ -98,8 +106,57 @@ function artists(){
             );
         }
     });
+<<<<<<< HEAD
  
     
+=======
+  };
+ 
+      // document.addEventListener('click', function() {
+      //   if (event.target.classList.contains('edit-artistId_button')) {
+      //     console.log("event triggered"); 
+      //     console.log(event.target.parentElement);
+      //     const artist = event.target.parentElement.querySelector('.edit-artist_id').value;
+  
+      //     console.log(artist);
+      //     const data = {
+      //       ArtistId: artist
+            
+      //     }
+      //     apiActions.putRequest('https://localhost:44358/api/artists',
+      //       data,
+      //       artists => {
+      //         console.log(artists);
+      //         document.querySelector('#root').innerHTML = Artists(artists);
+      //       });
+//};
+  
+
+};
+
+function singleArtist(){
+  document.addEventListener('click', function() {
+    if (event.target.classList.contains('single-artistId_submit')) {
+      console.log("event triggered");
+      
+      const artistId = event.target.parentElement.querySelector('.single-artist_id').value;
+      console.log(artistId)
+      // const data = {
+      //   ArtistId: artistId            
+      // };      
+      console.log(artistId);
+
+      apiActions.getRequestId(
+        'https://localhost:44358/api/artists/' + artistId,
+        //data,
+        artist => {
+          console.log("checking artist")
+          console.log(artist);
+          document.querySelector('#root').innerHTML = SingleArtist(artist);
+        });
+    }
+  });
+>>>>>>> 66486244940ec0277d6fa9b97f8e0404b2dcb2d0
 }
       function singleArtist(){
       
@@ -142,6 +199,7 @@ function artists(){
          console.log(albums)
          apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
 
+<<<<<<< HEAD
              document.getElementById('root').innerHTML= Albums(albums)
          })
      });
@@ -179,6 +237,60 @@ if(event.target.classList.contains('add-album_submit')){
     
 //   };    
     
+=======
+
+function albums(){
+    const album = document.getElementById('nav_Albums');
+    console.log(album)
+    album.addEventListener('click', function(){
+            console.log("album="+album)
+            apiActions.getRequest('https://localhost:44358/api/albums', albums =>{
+            console.log(albums)
+            document.getElementById('root').innerHTML= Albums(albums)
+        })
+    });
+
+    document.getElementById('root').addEventListener('click', function(){
+        if(event.target.classList.contains('add-artist_submit')){
+            const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
+            const data ={
+                id: 0,
+                AlbumTitle: albumTitle
+            };
+            apiActions.postRequest('https://localhost:44358/api/albums',
+                data,
+                albums => {
+                  document.querySelector('#root').innerHTML = Albums(albums);
+                });
+            }
+        });
+
+        document.addEventListener('click', function() {
+            if (event.target.classList.contains('delete-albumId_submit')) {
+              console.log("delete event triggered");                  
+              const album = event.target.parentElement.querySelector('.delete-album_id').value;
+    
+              console.log("just before delete request"+album)
+              const data = {
+                AlbumId: album
+              
+              };
+              console.log(data);
+              apiActions.deleteRequest('https://localhost:44358/api/albums',
+                data,
+                albums => {
+                  console.log(albums);
+                  document.querySelector('#root').innerHTML = Albums(albums);
+                });
+            }
+          });
+    };
+>>>>>>> 66486244940ec0277d6fa9b97f8e0404b2dcb2d0
+
+     
+    
+    
+
 
     
     //post request end
