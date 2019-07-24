@@ -28,6 +28,7 @@ export default function Albums(albums){
         .join("")}
         </ul>
           <section class="add-album">
+            <input class='add-album_id' type='hidden' value='${album.artistId}'>
             <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
             <button class="add-album_submit button">Submit</button>
           </section>

@@ -1,4 +1,4 @@
-export default function SingleAlbum(singleAlbum){
+export default function SingleAlbum(singleAlbum, artistId){
     return`
         <ul>
         <input class='single-album_id' type='hidden' value="${singleAlbum.albumId}"/>
@@ -7,7 +7,6 @@ export default function SingleAlbum(singleAlbum){
         <h3>${singleAlbum.label}</h3>
         <h3>${singleAlbum.date}</h3>
         <input class='single-album_id' type='hidden' value="${singleAlbum.albumId}"/>
-
 
       ${singleAlbum.songs.map(song =>{
        return`

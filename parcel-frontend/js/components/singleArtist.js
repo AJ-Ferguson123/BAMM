@@ -20,12 +20,13 @@ export default function SingleArtist(singleArtist){
 
               }).join("")}
                   </ul>
-                  <section class="add-album">        
-                    <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
-                    <button class="add-album_submit">Submit</button>
-                    <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
-            
-                  </section>
+                <section class="add-album">
+                  <input class='add-album_artistid' type='hidden' value='${singleArtist.artistId}'>
+                  <input class="add-album_albumtitle" type="text" placeholder="Add an Album Title!">
+                  <input class="add-album_label" type="text" placeholder="Add an Album Label!">
+                  <input class="add-album_date" type="text" placeholder="Add an Album Date!">
+                  <button class="add-album_submit button">Submit</button>
+                </section>
                   `;
                  }
                 
