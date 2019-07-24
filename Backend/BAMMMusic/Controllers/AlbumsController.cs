@@ -48,12 +48,11 @@ namespace BAMMMusic.Controllers
 
         // POST: api/Albums
         [HttpPost]
-        public ActionResult<IEnumerable<Album>> Post([FromBody] Album album)
-        {
-           
+        public ActionResult<Artist> Post([FromBody] Album album)
+        {           
             _context.Albums.Add(album);
             _context.SaveChanges();
-            return _context.Albums.ToList();
+            return _context.Artists.Single(a => a.ArtistId == album.ArtistId);
         }
 
         // DELETE: api/Albums/5

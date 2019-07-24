@@ -53,7 +53,7 @@ namespace BAMMMusic
                     AlbumImage = "https://upload.wikimedia.org/wikipedia/en/c/c2/Love_Symbol_Album_%28Prince_and_the_New_Power_Generation_album_-_cover_art%29.jpg",
                     Label = "Rhino/Warner Brothers",
                     ArtistId = 1,
-                    Date = 1992
+                    Date = "1992"
                 },
                 new Album
                 {
@@ -62,7 +62,7 @@ namespace BAMMMusic
                     AlbumImage = "https://images-na.ssl-images-amazon.com/images/I/A1bbWtAHUtL._SX425_.jpg",
                     Label = "Paisley Park",
                     ArtistId = 1,
-                    Date = 1987,
+                    Date = "1987",
                 },
                 new Album
                 {
@@ -71,7 +71,7 @@ namespace BAMMMusic
                     AlbumImage = "https://upload.wikimedia.org/wikipedia/en/0/05/Queen_Live_Killers.png",
                     Label = "EMI-Elektra",
                     ArtistId = 2,
-                    Date = 1979
+                    Date = "1979"
                 },
                 new Album
                 {
@@ -80,7 +80,7 @@ namespace BAMMMusic
                     AlbumImage = "https://images-na.ssl-images-amazon.com/images/I/810rfsma2tL._SX425_.jpg",
                     Label = "EMI-Elektra",
                     ArtistId = 2,
-                    Date = 1977
+                    Date = "1977"
                 });
 
             modelBuilder.Entity<Song>().HasData(

@@ -120,6 +120,27 @@ function singleArtist(){
         });
     }
   });
+  document.getElementById('root').addEventListener('click', function(){
+    if(event.target.classList.contains('add-album_submit')){
+         const date = event.target.parentElement.querySelector('.add-album_date').value;
+         const label = event.target.parentElement.querySelector('.add-album_label').value;
+         const artistId = event.target.parentElement.querySelector('.add-album_artistid').value;
+         const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
+         const data ={
+        albumId: 0,
+        albumTitle: albumTitle,
+        artistId: artistId,
+        label: label,
+        date: date
+         };
+         console.log(data)
+         apiActions.postRequest('https://localhost:44358/api/albums/', 
+             data,
+             artist => {
+               document.querySelector('#root').innerHTML = SingleArtist(artist);
+             });
+         }
+     });
 }
       
 function albums(){
@@ -130,27 +151,7 @@ function albums(){
              document.getElementById('root').innerHTML= Albums(albums)
          });
      });
-
-     document.getElementById('root').addEventListener('click', function(){
-        if(event.target.classList.contains('add-album_submit')){
-             const date = event.target.parentElement.querySelector('.add-album_date').value;
-             const label = event.target.parentElement.querySelector('.add-album_label').value;
-             const artistId = event.target.parentElement.querySelector('.add-album_artistid').value;
-             const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
-             const data ={
-            id: 0,
-            AlbumTitle: albumTitle,
-            ArtistId: artistId,
-            Label: label,
-            Date: date
-             };
-             apiActions.postRequest('https://localhost:44358/api/albums',
-                 data,
-                 albums => {
-                   document.querySelector('#root').innerHTML = Albums(albums);
-                 });
-             }
-         });
+     
 
          document.addEventListener('click', function() {
              if (event.target.classList.contains('delete-albumId_submit')) {

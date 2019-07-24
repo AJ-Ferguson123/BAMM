@@ -1,5 +1,6 @@
 export default function SingleArtist(singleArtist){
-    return`
+ console.log(singleArtist)   
+  return`
         <ul>
         <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
         <h3>${singleArtist.artistName}</h3>
@@ -21,6 +22,7 @@ export default function SingleArtist(singleArtist){
               }).join("")}
                   </ul>
                 <section class="add-album">
+                  <input class='add-album_albumid' type='hidden' value='${singleArtist.albumId}'>
                   <input class='add-album_artistid' type='hidden' value='${singleArtist.artistId}'>
                   <input class="add-album_albumtitle" type="text" placeholder="Add an Album Title!">
                   <input class="add-album_label" type="text" placeholder="Add an Album Label!">
