@@ -35,8 +35,8 @@ export default function Songs(songs){
       </ul>
 
       <section class="add-song">
-        <input class="add-song_songtitle" type="text" placeholder="Add a Song!">
-        <button class="button">Submit</button>
+        <input class="add-song_title" type="text" placeholder="Add a Song!">
+        <button class="add-song_submit button">Submit</button>
       </section>
       
       

@@ -14,13 +14,10 @@ export default function SingleArtist(singleArtist){
           <li>
             <h3>${album.albumTitle}</h3>
             <h3>${album.albumImage}</h3>
-            <input class='album_id' type='hidden' value="${album.albumId}"/>
-            <button class='albumId_submit button'>Choose Album</button>
+            <input class='single-album_id' type='hidden' value="${album.albumId}"/>
+            <button class='single-albumId_submit button'>Choose Album</button>
+          </li>`
 
-
-            </li>`
-                  
-            
               }).join("")}
                   </ul>
                   <section class="add-album">        

@@ -8,9 +8,6 @@ import SingleAlbum from './singleAlbum';
 //import Tags from './tags'
 import Songs from './songs'
 
-import nothing
-
-
 pageBuild();
 
 function pageBuild(){
@@ -193,10 +190,10 @@ function songs(){
             
           document.getElementById('root').addEventListener("click", function(){
             if(event.target.classList.contains('add-song_submit')){
-              const songName = event.target.parentElement.querySelector('.add-song_songname').value;
+              const title = event.target.parentElement.querySelector('.add-song_title').value;
                 const data ={
                     id: 0,
-                    SongName: songName
+                    Title: title
                 };
                   apiActions.postRequest(
                     "https://localhost:44358/api/songs",

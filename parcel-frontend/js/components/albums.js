@@ -27,9 +27,10 @@ export default function Albums(albums){
         })
         .join("")}
         </ul>
-            <input class='single-album_id' type='hidden' value="${album.albumId}"/>
-            <button class='single-albumId_submit button'>Choose Album</button>
-            <input class='edit-album_id' type='hidden' value="${album.albumId}"/>
+          <section class="add-album">
+            <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
+            <button class="add-album_submit button">Submit</button>
+          </section>
          
           `;
   }
