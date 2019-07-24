@@ -4,32 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/style/stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="./style/stylesheet.css"/>
     <title>BAMM</title>
     
 </head>
-<header><nav>
-    <ul>
-        <li id = 'nav_home' class = 'button'>Home</li>
-        <li id = 'nav_Artists' class = 'button'>All Artists</li>
-        <li id = 'nav_Albums' class = 'button'>All Albums</li>
-        <li id = 'nav_Songs' class = 'button'>All Songs</li>
-    </ul>   
-
-</nav>
-</header>
-
 <body>
-    <div class="head">
+    <header><nav>
+        <ul>
+            <li id = 'nav_home' class = 'button'>Home</li>
+            <li id = 'nav_Artists' class = 'button'>All Artists</li>
+            <li id = 'nav_Albums' class = 'button'>All Albums</li>
+            <li id = 'nav_Songs' class = 'button'>All Songs</li>
+        </ul>   
+
+    </nav>
+    </header>
+
+    <div id="root">
         <h2>Check out the site we created</h2>
         <p>We wanted to create a interactive way for people to view artist's and album's. This site allows for people to read reviews, as well as create reviews for the current artist's. The site also allows for people to add artist's to the data base themselves. Obviously the review's and artist's that are added will take some time to post due to our admin's having to review the content before being published.</p>
+        
+        <img src="images/princeMusician.jpg">
 
-<img src="images/princeMusician.jpg">
-</div>
-<nav>
-     
+    </div>
+
+</body>
 <footer>
     &copy; 2019 BAMM                
     </footer>
-</body>
+    <script src="./js/components/app.js"></script>
+
 </html>
