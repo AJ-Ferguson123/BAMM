@@ -14,7 +14,7 @@ namespace BAMMMusic.Controllers
     [ApiController]
     public class TagsController : ControllerBase
     {
-        private readonly MusicContext _context;
+        private MusicContext _context;
 
         public TagsController(MusicContext context)
         {

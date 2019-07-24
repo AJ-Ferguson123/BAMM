@@ -14,7 +14,7 @@ namespace BAMMMusic.Controllers
     [ApiController]
     public class AlbumsController : ControllerBase
     {
-        private readonly MusicContext _context;
+        private MusicContext _context;
 
         public AlbumsController(MusicContext context)
         {
@@ -30,56 +30,20 @@ namespace BAMMMusic.Controllers
 
         // GET: api/Albums/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAlbum([FromRoute] int id)
+        public ActionResult<Album> GetAlbumById(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            Album album = _context.Albums.Single(c => c.AlbumId == id);
 
-            var album = await _context.Albums.FindAsync(id);
-
-            if (album == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(album);
+            return album;
         }
 
         // PUT: api/Albums/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAlbum([FromRoute] int id, [FromBody] Album album)
+        [HttpPut]
+        public ActionResult<IEnumerable<Album>> Put([FromBody]Album album)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != album.AlbumId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(album).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                //if (!AlbumExists(id))
-                //{
-                //    return NotFound();
-                //}
-                //else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            _context.Albums.Update(album);
+            _context.SaveChanges();
+            return _context.Albums;
         }
 
         // POST: api/Albums
@@ -101,9 +65,5 @@ namespace BAMMMusic.Controllers
             _context.SaveChanges();
             return _context.Albums.ToList();
         }
-
-
-
-
     }
 }

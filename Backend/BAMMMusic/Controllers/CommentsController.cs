@@ -14,7 +14,7 @@ namespace BAMMMusic.Controllers
     [ApiController]
     public class CommentsController : ControllerBase
     {
-        private readonly MusicContext _context;
+        private MusicContext _context;
 
         public CommentsController(MusicContext context)
         {
