@@ -3,15 +3,14 @@ export default function Albums(albums){
         <ul>
        
       ${albums.map(album =>{
-        
        return`
           <li>
             <h3>${album.albumTitle}</h3>
             <h3>${album.label}</h3>            
             <h3>${album.date}</h3>
-            <img src=${album.albumImage} alt= "picture of album cover"/>
+            <img src=${album.albumImage} alt="picture of album cover"/>
 
-            <input class='delete-album_id' type='hidden' value="${album.albumId}"/>
+            <input class='delete-album_id' type='hidden' value='${album.albumId}'/>
             <button class='delete-albumId_submit button'>Delete</button>
 
             <section class='edit-album-box'>
@@ -24,14 +23,8 @@ export default function Albums(albums){
             </li>
             
             `
-        })
-        .join("")}
+        }).join("")}
         </ul>
-          <section class="add-album">
-            <input class='add-album_id' type='hidden' value='${album.artistId}'>
-            <input class="add-album_albumtitle" type="text" placeholder="Add an Album!">
-            <button class="add-album_submit button">Submit</button>
-          </section>
          
           `;
   }

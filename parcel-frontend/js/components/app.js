@@ -148,6 +148,7 @@ function albums(){
      album.addEventListener('click', function(){
          apiActions.getRequest('https://localhost:44358/api/albums', 
          albums =>{
+           console.log(albums)
              document.getElementById('root').innerHTML= Albums(albums)
          });
      });
