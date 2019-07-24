@@ -8,6 +8,8 @@ import SingleAlbum from './singleAlbum';
 //import Tags from './tags'
 import Songs from './songs'
 
+import nothing
+
 
 pageBuild();
 
