@@ -14,7 +14,7 @@ export default function SingleArtist(singleArtist){
        return`
           <li>
             <h3>${album.albumTitle}</h3>
-            <img src = ${album.albumImage} alt= "picture of artist"/>
+            <img src = ${album.albumImage} alt= "picture of album cover"/>
             <input class='single-album_id' type='hidden' value="${album.albumId}"/>
             <button class='single-albumId_submit button'>Choose Album</button>
           </li>`
