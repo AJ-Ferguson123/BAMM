@@ -3,14 +3,16 @@ using BAMMMusic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BAMMMusic.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20190719154255_deletedObjects")]
+    partial class deletedObjects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,10 +43,10 @@ namespace BAMMMusic.Migrations
                     b.ToTable("Albums");
 
                     b.HasData(
-                        new { AlbumId = 1, AlbumImage = "https://upload.wikimedia.org/wikipedia/en/c/c2/Love_Symbol_Album_%28Prince_and_the_New_Power_Generation_album_-_cover_art%29.jpg", AlbumTitle = "Love Symbol", ArtistId = 1, Date = 1992, Label = "Rhino/Warner Brothers" },
-                        new { AlbumId = 2, AlbumImage = "https://images-na.ssl-images-amazon.com/images/I/A1bbWtAHUtL._SX425_.jpg", AlbumTitle = "Sign Of the Times", ArtistId = 1, Date = 1987, Label = "Paisley Park" },
-                        new { AlbumId = 3, AlbumImage = "", AlbumTitle = "Live Killers", ArtistId = 2, Date = 1979, Label = "EMI-Elektra" },
-                        new { AlbumId = 4, AlbumImage = "https://images-na.ssl-images-amazon.com/images/I/810rfsma2tL._SX425_.jpg", AlbumTitle = "News Of The World", ArtistId = 2, Date = 1977, Label = "EMI-Elektra" }
+                        new { AlbumId = 1, AlbumImage = "loveSymbol.jpg", AlbumTitle = "Love Symbol", ArtistId = 1, Date = 1992, Label = "Rhino/Warner Brothers" },
+                        new { AlbumId = 2, AlbumImage = "princeSignOTimes.png", AlbumTitle = "Sign Of the Times", ArtistId = 1, Date = 1987, Label = "Paisley Park" },
+                        new { AlbumId = 3, AlbumImage = "QueenKillers.png", AlbumTitle = "Live Killers", ArtistId = 2, Date = 1979, Label = "EMI-Elektra" },
+                        new { AlbumId = 4, AlbumImage = "NewsWorld", AlbumTitle = "News Of The World", ArtistId = 2, Date = 1977, Label = "EMI-Elektra" }
                     );
                 });
 
@@ -67,8 +69,8 @@ namespace BAMMMusic.Migrations
                     b.ToTable("Artists");
 
                     b.HasData(
-                        new { ArtistId = 1, Age = 57, ArtistImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Prince_at_Coachella_%28cropped%29.jpg/230px-Prince_at_Coachella_%28cropped%29.jpg", ArtistName = "Prince", Hometown = "Minneapolis, Minnesota" },
-                        new { ArtistId = 2, Age = 49, ArtistImage = "https://img.discogs.com/zn9McvDCNM8ZOWOtrKERq8Q386o=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-81013-1211978659.jpeg.jpg", ArtistName = "Queen", Hometown = "London" }
+                        new { ArtistId = 1, Age = 57, ArtistImage = "/Images/princeMusician1.jpg/", ArtistName = "Prince", Hometown = "Minneapolis, Minnesota" },
+                        new { ArtistId = 2, Age = 49, ArtistImage = "/Images/queen2.jpg/", ArtistName = "Queen", Hometown = "London" }
                     );
                 });
 

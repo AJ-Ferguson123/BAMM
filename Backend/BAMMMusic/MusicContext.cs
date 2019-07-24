@@ -19,8 +19,8 @@ namespace BAMMMusic
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=BAMMmusic;Trusted_Connection=True;";
 
-            optionsBuilder.UseSqlServer(connectionString);
-                          //.UseLazyLoadingProxies();
+            optionsBuilder.UseSqlServer(connectionString)
+                          .UseLazyLoadingProxies();
 
             base.OnConfiguring(optionsBuilder);
         }
@@ -32,7 +32,7 @@ namespace BAMMMusic
                 {
                     ArtistId = 1,
                     ArtistName = "Prince",
-                    ArtistImage = "/Images/princeMusician1.jpg/",
+                    ArtistImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Prince_at_Coachella_%28cropped%29.jpg/230px-Prince_at_Coachella_%28cropped%29.jpg",
                     Hometown = "Minneapolis, Minnesota",
                     Age = 57,
                 },
@@ -40,7 +40,7 @@ namespace BAMMMusic
                 {
                     ArtistId = 2,
                     ArtistName = "Queen",
-                    ArtistImage = "/Images/queen2.jpg/",
+                    ArtistImage = "https://img.discogs.com/zn9McvDCNM8ZOWOtrKERq8Q386o=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-81013-1211978659.jpeg.jpg",
                     Hometown = "London",
                     Age = 49,
                 });
@@ -50,7 +50,7 @@ namespace BAMMMusic
                 {
                     AlbumId = 1,
                     AlbumTitle = "Love Symbol",
-                    AlbumImage = "loveSymbol.jpg",
+                    AlbumImage = "https://upload.wikimedia.org/wikipedia/en/c/c2/Love_Symbol_Album_%28Prince_and_the_New_Power_Generation_album_-_cover_art%29.jpg",
                     Label = "Rhino/Warner Brothers",
                     ArtistId = 1,
                     Date = 1992
@@ -59,7 +59,7 @@ namespace BAMMMusic
                 {
                     AlbumId = 2,
                     AlbumTitle = "Sign Of the Times",
-                    AlbumImage = "princeSignOTimes.png",
+                    AlbumImage = "https://images-na.ssl-images-amazon.com/images/I/A1bbWtAHUtL._SX425_.jpg",
                     Label = "Paisley Park",
                     ArtistId = 1,
                     Date = 1987,
@@ -68,7 +68,7 @@ namespace BAMMMusic
                 {
                     AlbumId = 3,
                     AlbumTitle = "Live Killers",
-                    AlbumImage = "QueenKillers.png",
+                    AlbumImage = "",
                     Label = "EMI-Elektra",
                     ArtistId = 2,
                     Date = 1979
@@ -77,7 +77,7 @@ namespace BAMMMusic
                 {
                     AlbumId = 4,
                     AlbumTitle = "News Of The World",
-                    AlbumImage = "NewsWorld",
+                    AlbumImage = "https://images-na.ssl-images-amazon.com/images/I/810rfsma2tL._SX425_.jpg",
                     Label = "EMI-Elektra",
                     ArtistId = 2,
                     Date = 1977
