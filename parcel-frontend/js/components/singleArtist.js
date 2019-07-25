@@ -7,8 +7,8 @@ export default function SingleArtist(singleArtist){
         <h3>${singleArtist.hometown}</h3>
         <h3>${singleArtist.age}</h3>
         <img src = ${singleArtist.artistImage} alt= "picture of artist"/>
-        <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
-
+        
+        
 
       ${singleArtist.albums.map(album =>{
        return`
@@ -17,6 +17,11 @@ export default function SingleArtist(singleArtist){
             <h3>${album.albumImage}</h3>
             <input class='single-album_id' type='hidden' value="${album.albumId}"/>
             <button class='single-albumId_submit button'>Choose Album</button>
+
+            <input class='deleteartistalbum_id' type='hidden' value="${album.artistId}"/>
+            <input class='delete-album_id' type='hidden' value='${album.albumId}'/>
+            <input class='delete-albumArtist_id' type='hidden' value=""/>
+            <button class='delete-albumId_submit button'>Delete</button>
           </li>`
 
               }).join("")}

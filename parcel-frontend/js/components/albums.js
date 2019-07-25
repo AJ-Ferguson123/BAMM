@@ -10,8 +10,7 @@ export default function Albums(albums){
             <h3>${album.date}</h3>
             <img src=${album.albumImage} alt="picture of album cover"/>
 
-            <input class='delete-album_id' type='hidden' value='${album.albumId}'/>
-            <button class='delete-albumId_submit button'>Delete</button>
+            
 
             <section class='edit-album-box'>
                     <input class='edit-album_id' type='hidden' value='${album.albumId}'>

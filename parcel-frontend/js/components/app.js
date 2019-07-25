@@ -141,7 +141,27 @@ function singleArtist(){
              });
          }
      });
-}
+
+     document.addEventListener('click', function() {
+      if (event.target.classList.contains('delete-albumId_submit')) {
+        console.log("event triggered");
+        //const artistId = event.target.parentElement.querySelector('.deleteartistalbum_id').value;
+        const album = event.target.parentElement.querySelector('.delete-album_id').value;
+        const artistId = event.target.parentElement.querySelector('.deleteartistalbum_id').value
+            const data= {
+            albumId: album,
+            artistId: artistId
+          }
+      
+        apiActions.deleteRequest('https://localhost:44358/api/albums/',
+          data,
+          artists => {
+            console.log(artists);
+            document.querySelector('#root').innerHTML = SingleArtist(artists);
+          });
+         }
+   });
+  }
       
 function albums(){
   const album = document.getElementById('nav_Albums');
@@ -154,20 +174,7 @@ function albums(){
      });
      
 
-         document.addEventListener('click', function() {
-             if (event.target.classList.contains('delete-albumId_submit')) {
-               console.log("event triggered");
-               const album = event.target.parentElement.querySelector('.delete-album_id').value;
-    
-               console.log(album);
-               apiActions.deleteRequest('https://localhost:44358/api/albums',
-                 album,
-                 albums => {
-                   console.log(albums);
-                   document.querySelector('#root').innerHTML = Albums(albums);
-                 });
-                }
-          });
+         
   };
 
 
@@ -253,67 +260,7 @@ function songs(){
                            });
                          }
                       });
-  };
+};
                           
-// function comments(){
-//                     const comment = document.getElementById('nav_Comments');
-//                     comment.addEventListener('click', function(){
-//                     apiActions.getRequest('https://localhost:44358/api/comments', comments =>{
-//                      console.log(comments)
-//                     document.getElementById('root').innerHTML= Comments(comments)
-//                   })
-//     })
 
-    
-
-//     document.getElementById('root').addEventListener("click", function(){
-//         if(event.target.classList.contains('add-comment_submit')){
-//             const commentName = event.target.parentElement.querySelector('.add-comment_commentname').value;
-//             const data ={
-//                 id: 0,
-//                 CommentName: commentName
-//             };
-//             apiActions.postRequest(
-//                 "https://localhost:44358/api/comments",
-//                 data,
-//                 comments => {
-//                   document.querySelector("#root").innerHTML = Comments(comments);
-//                 },
-//     function tags(){
-//          const tag = document.getElementById('nav_Tags');
-//                 tag.addEventListener('click', function(){
-//                 apiActions.getRequest('https://localhost:44358/api/tags', tagss =>{
-//                 console.log(tags)
-//                 document.getElementById('root').innerHTML= Artists(tags)
-//                         })
-//                     })
-                
-                    
-                
-//         document.getElementById('root').addEventListener("click", function(){
-//          if(event.target.classList.contains('add-tag_submit')){
-//         const tagName = event.target.parentElement.querySelector('.add-tag_artistname').value;
-//         const data ={
-//                      id: 0,
-//                      TagName: tagName
-//                     };
-//          apiActions.postRequest(
-//          "https://localhost:44358/api/tags",
-//          data,
-//         tags => {
-//                     document.querySelector("#root").innerHTML = Tags(tags);
-//                 }
-//                                 );
-//         }
-//                     })
-//                 }
-//               );
-//         }
-//     })
-// }
-
-            //         }
-            //     })
-            // }        
-  
-                  
+      

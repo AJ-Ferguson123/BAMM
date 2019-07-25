@@ -39,11 +39,11 @@ namespace BAMMMusic.Controllers
 
         // PUT: api/Albums/5
         [HttpPut]
-        public ActionResult<IEnumerable<Album>> Put([FromBody]Album album)
+        public ActionResult<Artist> Put([FromBody] Album album)
         {
             _context.Albums.Update(album);
             _context.SaveChanges();
-            return _context.Albums;
+            return _context.Artists.Single(a => a.ArtistId == album.ArtistId);
         }
 
         // POST: api/Albums
@@ -55,14 +55,22 @@ namespace BAMMMusic.Controllers
             return _context.Artists.Single(a => a.ArtistId == album.ArtistId);
         }
 
-        // DELETE: api/Albums/5
+        //DELETE: api/Albums/5
         [HttpDelete]
 
-        public ActionResult<IEnumerable<Album>> Delete([FromBody]Album album)
+        public ActionResult<Artist> Delete([FromBody] Album album)
         {
+            var deletedalbum = album.ArtistId;
             _context.Albums.Remove(album);
             _context.SaveChanges();
-            return _context.Albums.ToList();
+            return _context.Artists.Single(a => a.ArtistId == deletedalbum);
         }
+        //[HttpDelete]
+        //public ActionResult<IEnumerable<Album>> Delete([FromBody]Album album)
+        //{
+        //    _context.Albums.Remove(album);
+        //    _context.SaveChanges();
+        //    return _context.Albums.ToList();
+        //}
     }
 }
