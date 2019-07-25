@@ -15,6 +15,17 @@ export default function SingleAlbum(singleAlbum){
           <h3>${song.duration}</h3>
           <input class='song_id' type='hidden' value="${song.songId}"/>
           <button class='songId_submit button'>Choose Song</button>
+
+          <input class='delete-song_id' type='hidden' value='${song.songId}'/>
+          <button class='delete-songId_submit button'>Delete</button>
+
+          <section class='edit-song-box'>
+              <input class='edit-song_id' type='hidden' value='${song.songId}'>
+              <input class='edit-song_title' type='text' value='${song.title}'>
+              <input class='edit-song_duration' type='text' value='${song.duration}'>
+              <button class='edit-artist_submit'>Submit</button>
+          </section>
+
         </li>`
                               
       }).join("")}
