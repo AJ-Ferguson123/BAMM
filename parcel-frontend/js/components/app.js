@@ -118,8 +118,8 @@ function singleArtist(){
           console.log(artist);
           document.querySelector('#root').innerHTML = SingleArtist(artist);
         });
-    }
-  });
+        }
+      });
   document.getElementById('root').addEventListener('click', function(){
     if(event.target.classList.contains('add-album_submit')){
          const date = event.target.parentElement.querySelector('.add-album_date').value;
@@ -139,8 +139,8 @@ function singleArtist(){
              artist => {
                document.querySelector('#root').innerHTML = SingleArtist(artist);
              });
-         }
-     });
+          }
+      });
 }
       
 function albums(){
@@ -154,35 +154,55 @@ function albums(){
      });
      
 
-         document.addEventListener('click', function() {
-             if (event.target.classList.contains('delete-albumId_submit')) {
-               console.log("event triggered");
-               const album = event.target.parentElement.querySelector('.delete-album_id').value;
-    
-               console.log(album);
-               apiActions.deleteRequest('https://localhost:44358/api/albums',
-                 album,
-                 albums => {
-                   console.log(albums);
-                   document.querySelector('#root').innerHTML = Albums(albums);
-                 });
-                }
+  document.addEventListener('click', function() {
+    if (event.target.classList.contains('delete-albumId_submit')) {
+      console.log("event triggered");
+        const album = event.target.parentElement.querySelector('.delete-album_id').value;
+          console.log(album);
+
+          apiActions.deleteRequest('https://localhost:44358/api/albums',
+            album,
+            albums => {
+            console.log(albums);
+              document.querySelector('#root').innerHTML = Albums(albums);
+              });
+            }
           });
-  };
+      };
 
 
 function singleAlbum(){
-     document.querySelector('#root').addEventListener("click", function() {
-          if (event.target.classList.contains("single-albumId_submit")) {
-            const albumId = event.target.parentElement.querySelector(".single-album_id").value;
-              console.log(albumId)
-            apiActions.getRequest("https://localhost:44358/api/albums/"+ albumId,
-              album => {
-                  document.querySelector('#root').innerHTML = SingleAlbum(album);
-              });
-          }
+  document.querySelector('#root').addEventListener("click", function() {
+    if (event.target.classList.contains("single-albumId_submit")) {
+       const albumId = event.target.parentElement.querySelector(".single-album_id").value;
+         console.log(albumId)
+          apiActions.getRequest("https://localhost:44358/api/albums/"+ albumId,
+            album => {
+              document.querySelector('#root').innerHTML = SingleAlbum(album);
+          });
+        }
         });
-  }
+
+  document.getElementById('root').addEventListener("click", function(){
+    if(event.target.classList.contains('add-song_submit')){
+        const songtitle = event.target.parentElement.querySelector('.add-song_title').value;
+        const songduration = event.target.parentElement.querySelector('.add-song_duration').value;
+        const albumId = event.target.parentElement.querySelector('.add-song_albumid').value;
+          const data ={
+                songId: 0,
+                title: songtitle,
+                duration: songduration,
+                albumId: albumId
+              };
+              console.log(data)
+          apiActions.postRequest("https://localhost:44358/api/songs",
+                data,
+                albums => {
+                  document.querySelector("#root").innerHTML = SingleAlbum(albums);
+                });
+          }});
+
+}
     
     
 function songs(){
@@ -195,21 +215,6 @@ function songs(){
                 })
               })
             
-          document.getElementById('root').addEventListener("click", function(){
-            if(event.target.classList.contains('add-song_submit')){
-              const title = event.target.parentElement.querySelector('.add-song_title').value;
-                const data ={
-                    id: 0,
-                    Title: title
-                };
-                  apiActions.postRequest(
-                    "https://localhost:44358/api/songs",
-                      data,
-                      songs => {
-                        document.querySelector("#root").innerHTML = Songs(songs);
-                      });
-                }});
-
           document.addEventListener('click', function() {
             if (event.target.classList.contains('delete-songId_submit')) {
               console.log("event triggered");
