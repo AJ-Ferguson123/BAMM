@@ -1,6 +1,7 @@
 export default function SingleArtist(singleArtist){
  console.log(singleArtist)   
   return`
+        <h2>Artist</h2>
         <ul>
         <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
         <h3>${singleArtist.artistName}</h3>
@@ -9,12 +10,12 @@ export default function SingleArtist(singleArtist){
         <img src = ${singleArtist.artistImage} alt= "picture of artist"/>
         
         
-
+        <h2>Albums for ${singleArtist.artistName}:</h2>
       ${singleArtist.albums.map(album =>{
        return`
           <li>
             <h3>${album.albumTitle}</h3>
-            <h3>${album.albumImage}</h3>
+            <img src = ${album.albumImage} alt= "album cover"/>
             <input class='single-album_id' type='hidden' value="${album.albumId}"/>
             <button class='single-albumId_submit button'>Choose Album</button>
 
@@ -22,6 +23,14 @@ export default function SingleArtist(singleArtist){
             <input class='delete-album_id' type='hidden' value='${album.albumId}'/>
             <input class='delete-albumArtist_id' type='hidden' value=""/>
             <button class='delete-albumId_submit button'>Delete</button>
+
+            <section class='edit-album-box'>
+                    <input class='edit-album_id' type='hidden' value='${album.albumId}'>
+                    <input class='edit-album_title' type='text' value='${album.albumTitle}'>
+                    <input class='edit-album_label' type='text' value='${album.label}'>
+                    <input class='edit-album_date' type='text' value='${album.date}'>
+                    <button class='edit-album_submit'>Submit</button>
+                </section>
           </li>`
 
               }).join("")}
@@ -34,6 +43,8 @@ export default function SingleArtist(singleArtist){
                   <input class="add-album_date" type="text" placeholder="Add an Album Date!">
                   <button class="add-album_submit button">Submit</button>
                 </section>
+
+              
                   `;
                  }
                 

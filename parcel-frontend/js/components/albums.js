@@ -12,13 +12,7 @@ export default function Albums(albums){
 
             
 
-            <section class='edit-album-box'>
-                    <input class='edit-album_id' type='hidden' value='${album.albumId}'>
-                    <input class='edit-album_title' type='text' value='${album.albumTitle}'>
-                    <input class='edit-album_label' type='text' value='${album.label}'>
-                    <input class='edit-album_date' type='text' value='${album.date}'>
-                    <button class='edit-album_submit'>Submit</button>
-                </section>
+            
             </li>
             
             `

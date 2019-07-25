@@ -162,7 +162,31 @@ function singleArtist(){
           });
          }
    });
-  }
+   document.getElementById('root').addEventListener('click', function(){
+    if (event.target.classList.contains('edit-artist_submit')){
+        console.log('event triggered');
+        const editartist_id = event.target.parentElement.querySelector('.edit-artist_id').value;
+        const editartist_name = event.target.parentElement.querySelector('.edit-artist_name').value;
+        const editartist_hometown = event.target.parentElement.querySelector('.edit-artist_hometown').value;
+        console.log(editartist_id)
+        console.log(editartist_name)
+        console.log(editartist_hometown)
+        const data = {
+            ArtistId: editartist_id,
+            ArtistName: editartist_name,
+            Hometown: editartist_hometown
+        };
+        console.log(data);
+        apiActions.putRequest('https://localhost:44358/api/artists', data, artists => {
+                console.log("list of artists from controller: " + artists);
+                document.querySelector('#root').innerHTML = Artists(artists);
+            }
+        );
+    }
+});
+};
+
+  
       
 function albums(){
   const album = document.getElementById('nav_Albums');
