@@ -34,17 +34,18 @@ function artists(){
     const artist = document.getElementById('nav_Artists');
     artist.addEventListener('click', function(){
         apiActions.getRequest('https://localhost:44358/api/artists', artists =>{
-            console.log(artists)
-            document.getElementById('root').innerHTML= Artists(artists)
+        document.getElementById('root').innerHTML= Artists(artists)
         })
     })
 
     document.getElementById('root').addEventListener('click', function(){
         if(event.target.classList.contains('add-artist_submit')){
             const artistName = event.target.parentElement.querySelector('.add-artist_name').value;
+            const hometown = event.target.parentElement.querySelector('.add-artist_hometown').value;
             const data ={
-                id: 0,
-                ArtistName: artistName
+                artistId: 0,
+                ArtistName: artistName,
+                Hometown: hometown
             };
             apiActions.postRequest(
                 'https://localhost:44358/api/artists',
@@ -98,8 +99,8 @@ function artists(){
                 }
             );
         }
-    });
-  };
+  });
+};
  
 
 function singleArtist(){

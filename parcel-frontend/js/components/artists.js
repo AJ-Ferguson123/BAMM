@@ -22,7 +22,7 @@ export default function Artists(artists){
    
    
 
-           <input class='artist_id' type='hidden' value='${artist.artistName}'>
+           <input class='artist_id' type='hidden' value='${artist.artistId}'>
            <input class='artist_name' type='hidden' value='${artist.artistName}'>
            <input class='artist_hometown' type='hidden' value='${artist.hometown}'>
                
@@ -40,7 +40,9 @@ export default function Artists(artists){
         </ul>
 
         <section class="add-artist">
-          <input class="add-artist_artistname" type="text" placeholder="Add an Artist!">
+          
+          <input class="add-artist_name" type="text" placeholder="Add an Artist name!">
+          <input class="add-artist_hometown" type="text" placeholder="Add an Artist hometown!">
           <button class="add-artist_submit button">Submit</button>
         </section>
         
