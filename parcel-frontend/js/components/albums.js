@@ -6,8 +6,8 @@ export default function Albums(albums){
        return`
           <li>
             <h3>${album.albumTitle}</h3>
-            <h3>${album.label}</h3>            
-            <h3>${album.date}</h3>
+            <h4>${album.label}</h4>            
+            <h5>${album.date}</h5>
             <img src=${album.albumImage} alt="picture of album cover"/>
 
             <input class='delete-album_id' type='hidden' value='${album.albumId}'/>

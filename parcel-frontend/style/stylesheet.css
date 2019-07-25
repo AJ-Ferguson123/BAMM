@@ -7,6 +7,7 @@
 body{
     margin: 0;
     margin-bottom: 2em;
+    
     padding:6em;
     background:rgb(209, 111, 111);
     min-height: 800px;
@@ -34,8 +35,48 @@ nav ul{
     list-style:none;
 }
 
-nav ul hover{
-    background:#fff;
+li{
+    list-style:none;
+}
+
+#nav_home:hover{
+color: rgb(209, 111, 111);
+background-color: black;
+border-radius: 5px;
+}
+
+#nav_Artists:hover{
+    color: rgb(209, 111, 111);
+    background-color: black;
+    border-radius: 5px;
+}
+
+#nav_Albums:hover{
+    color: rgb(209, 111, 111);
+    background-color: black;
+    border-radius: 5px;
+}
+
+#nav_Songs:hover{
+    color: rgb(209, 111, 111);
+    background-color: black;
+    border-radius: 5px;
+}
+
+#root{
+text-align: center;
+background: #666;
+border-radius: 12px;
+}
+
+#prince{
+    text-align: center;
+}
+
+#home{
+    padding: 2ex 2ex 1em 1em;    
+    background-color: rgb(43, 85, 85); 
+    border-radius: 12px;   
 }
 
  footer{
@@ -49,8 +90,3 @@ nav ul hover{
     text-align: center;
 } 
 
-button{
-    background-color: #666;
-    color: #fff;
-    display: inline-block;
-}

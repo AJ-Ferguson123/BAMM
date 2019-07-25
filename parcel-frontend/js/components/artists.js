@@ -3,9 +3,9 @@ export default function Artists(artists){
         <ul>
       ${artists.map(artist =>{
        return`
-          <li>
+          
             <h3>${artist.artistName}</h3>
-            <h3>${artist.hometown}</h3>
+            <h4>${artist.hometown}</h4>
             <img src = ${artist.artistImage} alt= "picture of artist"/>
             <input class='delete-artist_id' type='hidden' value="${artist.artistId}"/>
             

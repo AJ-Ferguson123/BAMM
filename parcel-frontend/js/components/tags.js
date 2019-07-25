@@ -5,7 +5,7 @@ export default function Tags(tags){
        return`
           <li>
             <h3>${tag.tagid}</h3>
-            <h3>${tag.tagtitle}</h3>
+            <h4>${tag.tagtitle}</h4>
           </li> 
   `
   

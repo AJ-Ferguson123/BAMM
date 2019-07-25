@@ -1,14 +1,14 @@
-export default function SingleAlbum(singleAlbum){
-  return`
-    <ul>
-      <input class='single-album_id' type='hidden' value="${singleAlbum.albumId}"/>
-      <h3>${singleAlbum.albumTitle}</h3>
-      <img src= ${singleAlbum.albumImage} alt="picture of album"/>
-      <h3>${singleAlbum.label}</h3>
-      <h3>${singleAlbum.date}</h3>
-      <input class='single-album_id' type='hidden' value="${singleAlbum.albumId}"/>
+export default function SingleAlbum(singleAlbum, artistId){
+    return`
+        <ul>
+        <input class='single-album_id' type='hidden' value="${singleAlbum.albumId}"/>
+        <h3>${singleAlbum.albumTitle}</h3>
+        <h3>${singleAlbum.albumImage}</h3>
+        <h4>${singleAlbum.label}</h4>
+        <h5>${singleAlbum.date}</h5>
+        <input class='single-album_id' type='hidden' value="${singleAlbum.albumId}"/>
 
-    ${singleAlbum.songs.map(song =>{
+      ${singleAlbum.songs.map(song =>{
       return`
         <li>
           <h3>${song.title}</h3>

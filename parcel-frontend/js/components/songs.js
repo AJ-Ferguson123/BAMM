@@ -3,9 +3,9 @@ export default function Songs(songs){
       <ul>
     ${songs.map(song =>{
      return`
-        <li>
+        <li id="song">
           <h3>${song.title}</h3>
-          <h3>${song.duration}</h3>
+          <h4>${song.duration}</h4>
           <input class='delete-song_id' type='hidden' value="${song.songId}"/>
           
            <input class='song_title' type='hidden' value='${song.title}'>
