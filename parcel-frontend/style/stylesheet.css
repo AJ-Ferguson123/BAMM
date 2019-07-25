@@ -40,20 +40,27 @@ li{
 }
 
 #nav_home:hover{
-color: red;
+color: rgb(209, 111, 111);
 background-color: black;
+border-radius: 5px;
 }
 
 #nav_Artists:hover{
-    color: red;
+    color: rgb(209, 111, 111);
+    background-color: black;
+    border-radius: 5px;
 }
 
 #nav_Albums:hover{
-    color:red;
+    color: rgb(209, 111, 111);
+    background-color: black;
+    border-radius: 5px;
 }
 
 #nav_Songs:hover{
-    color:red;
+    color: rgb(209, 111, 111);
+    background-color: black;
+    border-radius: 5px;
 }
 
 #root{
