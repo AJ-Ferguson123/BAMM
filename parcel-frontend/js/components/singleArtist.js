@@ -4,8 +4,8 @@ export default function SingleArtist(singleArtist){
         <ul>
         <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
         <h3>${singleArtist.artistName}</h3>
-        <h3>${singleArtist.hometown}</h3>
-        <h3>${singleArtist.age}</h3>
+        <h4>${singleArtist.hometown}</h4>
+        <h4>${singleArtist.age}</h4>
         <img src = ${singleArtist.artistImage} alt= "picture of artist"/>
         <input class='single-artist_id' type='hidden' value="${singleArtist.artistId}"/>
 

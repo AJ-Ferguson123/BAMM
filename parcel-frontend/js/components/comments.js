@@ -5,7 +5,7 @@ export default function Comments(comments){
        return`
           <li>
             <h3>${comment.commentId}</h3>
-            <h3>${comment.commentdetails}</h3>
+            <h4>${comment.commentdetails}</h4>
           </li> 
   `
   

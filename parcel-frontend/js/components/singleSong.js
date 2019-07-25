@@ -1,9 +1,10 @@
 export default function SingleSong(singleSong){
     return`
+       
         <ul>
         <input class='single-song_id' type='hidden' value="${singleSong.songId}"/>
         <h3>${singleSong.songTitle}</h3>
-        <h3>${singleSong.duration}</h3>
+        <h4>${singleSong.duration}</h4>
         <input class='single-song_id' type='hidden' value="${singleSong.songId}"/>
 
 
