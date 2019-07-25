@@ -41,6 +41,7 @@ namespace BAMMMusic.Controllers
         [HttpPut]
         public ActionResult<Artist> Put([FromBody] Album album)
         {
+
             _context.Albums.Update(album);
             _context.SaveChanges();
             return _context.Artists.Single(a => a.ArtistId == album.ArtistId);

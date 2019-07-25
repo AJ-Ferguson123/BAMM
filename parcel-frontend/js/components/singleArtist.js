@@ -29,6 +29,7 @@ export default function SingleArtist(singleArtist){
                     <input class='edit-album_title' type='text' value='${album.albumTitle}'>
                     <input class='edit-album_label' type='text' value='${album.label}'>
                     <input class='edit-album_date' type='text' value='${album.date}'>
+                    <input class= 'editartistalbum_id' type='hidden' value='${album.artistId}'>
                     <button class='edit-album_submit'>Submit</button>
                 </section>
           </li>`

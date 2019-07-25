@@ -125,12 +125,12 @@ function singleArtist(){
     if(event.target.classList.contains('add-album_submit')){
          const date = event.target.parentElement.querySelector('.add-album_date').value;
          const label = event.target.parentElement.querySelector('.add-album_label').value;
-         const artistId = event.target.parentElement.querySelector('.add-album_artistid').value;
+         const albumId = event.target.parentElement.querySelector('.add-album_artistid').value;
          const albumTitle = event.target.parentElement.querySelector('.add-album_albumtitle').value;
          const data ={
         albumId: 0,
         albumTitle: albumTitle,
-        artistId: artistId,
+        albumId: albumId,
         label: label,
         date: date
          };
@@ -163,23 +163,26 @@ function singleArtist(){
          }
    });
    document.getElementById('root').addEventListener('click', function(){
-    if (event.target.classList.contains('edit-artist_submit')){
+    if (event.target.classList.contains('edit-album_submit')){
         console.log('event triggered');
-        const editartist_id = event.target.parentElement.querySelector('.edit-artist_id').value;
-        const editartist_name = event.target.parentElement.querySelector('.edit-artist_name').value;
-        const editartist_hometown = event.target.parentElement.querySelector('.edit-artist_hometown').value;
-        console.log(editartist_id)
-        console.log(editartist_name)
-        console.log(editartist_hometown)
+        const editalbum_id = event.target.parentElement.querySelector('.edit-album_id').value;
+        const editalbum_title = event.target.parentElement.querySelector('.edit-album_title').value;
+        const editalbum_label = event.target.parentElement.querySelector('.edit-album_label').value;
+        const editalbum_date = event.target.parentElement.querySelector('.edit-album_date').value;
+        const editalbumartistId = event.target.parentElement.querySelector('.editartistalbum_id').value;
+        console.log(editalbum_id)
+        console.log(editalbum_title)
+        console.log(editalbum_label)
         const data = {
-            ArtistId: editartist_id,
-            ArtistName: editartist_name,
-            Hometown: editartist_hometown
+            AlbumId: editalbum_id,
+            AlbumTitle: editalbum_title,
+            Label: editalbum_label,
+            Date: editalbum_date,
+            ArtistId: editalbumartistId
         };
         console.log(data);
-        apiActions.putRequest('https://localhost:44358/api/artists', data, artists => {
-                console.log("list of artists from controller: " + artists);
-                document.querySelector('#root').innerHTML = Artists(artists);
+        apiActions.putRequest('https://localhost:44358/api/albums', data, artists => {
+                 document.querySelector('#root').innerHTML = SingleArtist(artists);
             }
         );
     }
